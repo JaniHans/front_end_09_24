@@ -1,0 +1,94 @@
+.App {
+  text-align: center;
+
+}
+
+.nupp {
+  background-color: rgb(27, 100, 27);
+  color: rgb(161, 161, 161);
+}
+
+.nupp:hover {
+  height: 100px;
+}
+
+.nupp:active {
+  cursor: grab;
+}
+
+.tekst {
+  color: blue;
+  font-style: italic;
+}
+
+.tekst:hover {
+  font-size: 24px;
+}
+
+.tekst_ {
+  color: green;
+  font-weight: bold;
+  border: 2px solid red;
+}
+
+.tekst_:hover {
+  border: 2px solid brown;
+}
+
+.pildikast {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+
+.pilt {
+  width: 250px;
+  height: 100px;
+}
+
+.pilt:hover {
+  border-radius: 25px;
+}
+
+.pilt:active {
+  opacity: 0.1;
+}
+
+table {
+  text-align: left;
+}
+
+.tabeli_pealkirjad {
+  font-weight: bold;
+  border: 0.5px solid rgb(224, 219, 219);
+  background-color: white;
+  padding: 0;
+}
+
+.firma {
+  width: 400px;
+
+  
+}
+
+.kontakt {
+  width: 200px;
+  
+}
+
+.riik {
+  width: 150px;
+
+}
+
+.paaris {
+  background-color: white;
+}
+
+.paaritu {
+  background-color: rgb(224, 219, 219);
+}
+
+.videokast {
+  margin-top: 50px;
+}
