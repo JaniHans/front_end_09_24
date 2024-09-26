@@ -12,15 +12,15 @@ function App() {
       <div className="rectangle"></div>
 
       <div className="navigation-pictures">
-        <Link className="main-link" to="work">
+        <Link className="main-link" to="/work">
         <img src="https://cdn.pixabay.com/photo/2024/09/06/13/11/beach-9027513_1280.jpg" alt="ship on sea"/>
         <p>Tööde lehele</p>
         </Link>
-        <Link className="main-link"to="hobbies">
+        <Link className="main-link"to="/hobbies">
         <img src="https://cdn.pixabay.com/photo/2023/05/17/13/38/lofoten-islands-8000196_1280.jpg" alt="sea full of rocks"/>
         <p>Hobide lehele</p>
         </Link>
-        <Link className="main-link" to="courses">
+        <Link className="main-link" to="/courses">
         <img src="https://i.natgeofe.com/n/2a832501-483e-422f-985c-0e93757b7d84/6.jpg?w=718&h=539" alt="highway"/>
         <p>Kursuse lehele</p>
         </Link>

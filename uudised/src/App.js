@@ -9,20 +9,20 @@ import { Link, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <div className="/App">
       <Link to="">
       <button>Avalehele</button>
       </Link>
 
-      <Link to="Uudised">
+      <Link to="/Uudised">
       <button>Uudiste lehele</button>
       </Link>
 
-      <Link to="Kontakt">
+      <Link to="/Kontakt">
       <button>Võta meiega ühendust</button>
       </Link>
 
-      <Link to="Meist">
+      <Link to="/Meist">
       <button>Info meist</button>
       </Link>
 

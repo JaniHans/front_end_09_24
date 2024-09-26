@@ -1,8 +1,14 @@
-import React from 'react'
+import React, {useState } from 'react'
 
 function Lisatoode() {
+  const [sonum, muudaSonum] = useState("Lisa toode!")
   return (
-    <div>Lisatoode</div>
+    <div>
+      <div>{sonum}</div>
+      <label>Uue toote nimi</label>< br/>
+      <input type="text" />< br/>
+      <button onClick={() => muudaSonum("Toode lisatud!")}>Sisesta</button> < br/>
+    </div>
   )
 }
 
