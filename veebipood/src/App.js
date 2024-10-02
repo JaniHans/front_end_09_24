@@ -8,6 +8,7 @@ import Seaded from './pages/Seaded';
 import Lisatoode from './pages/Lisatoode';
 import Esindused from './pages/Esindused';
 import Menu from './components/Menu';
+import NotFound from './pages/NotFound';
 
 // kahte tüüpi errorid:
 // run-time error 
@@ -35,10 +36,11 @@ function App() {
         <Route path="seaded" element={ <Seaded/>}/> 
         <Route path="lisa-toode" element={ <Lisatoode/>}/> 
         <Route path="esindused" element={ <Esindused/>}/>
-        <Route path="*" element={ <div>404</div>} />
+        <Route path="*" element={ <NotFound/> } />
+        
       </Routes>
     
-    
+    {/* FOOTER */}
     </div>
 );
 }
