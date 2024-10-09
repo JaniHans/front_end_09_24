@@ -23,7 +23,18 @@ function Menu() {
   </Link>
   <Link to="esindused">
     <button className="nupp">Esindused</button>
-  </Link></div>
+  </Link>
+  <Link to="logi-sisse">
+    <button className="nupp">LogiSisse</button>
+  </Link>
+  <Link to="profiil">
+    <button className="nupp">Profiil</button>
+  </Link>
+  <Link to="registreeru">
+    <button className="nupp">Registreeru</button>
+  </Link>
+  </div>
+  
   )
 }
 

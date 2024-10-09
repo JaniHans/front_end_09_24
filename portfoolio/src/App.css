@@ -59,3 +59,16 @@
   color: #7ba9c3;
   cursor: pointer;
 }
+
+.udemynupp-aktiivne {
+  border: 2px solid purple;
+  width: 150px;
+  background-color: teal;
+  color: white;
+}
+
+.udemynupp-mitteaktiivne {
+  width: 100px;
+  background-color: orange;
+  color: white
+}

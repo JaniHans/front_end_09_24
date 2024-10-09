@@ -8,7 +8,7 @@ function Courses() {
         <Link to="/">
         <button>Tagasi</button>
         </Link>
-        <button onClick={() => uuendaKursus("udemy")}>Udemy</button>
+        <button className={kursus === "udemy" ? "udemynupp-aktiivne" : "udemynupp-mitteaktiivne"} onClick={() => uuendaKursus("udemy")}>Udemy</button>
         <button onClick={() => uuendaKursus("coursera")}>Coursera</button>
         <button onClick={() => uuendaKursus("codecademy")}>Codecademy</button>
         <button onClick={() => uuendaKursus("udacity")}>Udacity</button>

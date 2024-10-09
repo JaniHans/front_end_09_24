@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import Work from './pages/Work'
 import Hobbies from './pages/Hobbies'
 import Courses from './pages/Courses'
@@ -10,8 +10,8 @@ function App() {
   return (
     <div>
       
-      
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/6HhzIn8I4ak?si=JmiX8CUdGGiQwp2o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <Navbar/>
+      <Link to="/courses"><button>Courses</button></Link>
       <Routes>
         <Route path="" elements={ <Navbar />} />
         <Route path="work" element={ <Work/> } />

@@ -9,6 +9,10 @@ import Lisatoode from './pages/Lisatoode';
 import Esindused from './pages/Esindused';
 import Menu from './components/Menu';
 import NotFound from './pages/NotFound';
+import LogiSisse from "./pages/LogiSisse";
+import Profiil from "./pages/Profiil";
+import Registreeru from "./pages/Registreeru";
+
 
 // kahte tüüpi errorid:
 // run-time error 
@@ -37,6 +41,9 @@ function App() {
         <Route path="lisa-toode" element={ <Lisatoode/>}/> 
         <Route path="esindused" element={ <Esindused/>}/>
         <Route path="*" element={ <NotFound/> } />
+        <Route path="profiil" element={ <Profiil/> } />
+        <Route path="logi-sisse" element= { <LogiSisse/>} />
+        <Route path="registreeru" element= { <Registreeru/>} />
         
       </Routes>
     
