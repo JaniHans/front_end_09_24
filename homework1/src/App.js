@@ -4,60 +4,36 @@ import Kontakt from './pages/Kontakt';
 import Meist from "./pages/Meist";
 import Seaded from "./pages/Seaded";
 import Avaleht from "./pages/Avaleht"
-import { useState , useRef } from 'react'
+import Leht from './pages/Leht';
+
+
 
 function App() {
-  const [sisselogitud, muudaSisselogitud] = useState("ei");
-  const [sonum, muudaSonum] = useState("")
-  const kasutajaNimiRef = useRef();
-  const paroolRef = useRef();
 
-  const logiSisse = () => {
-    if (paroolRef.current.value === "123") {
-    muudaSisselogitud("jah");
-    muudaSonum(kasutajaNimiRef.current.value + "Oled sisselogitud");
-  } else {
-    muudaSonum("Vale parool")
-  }
-}
-
-const logiValja = () => {
-  muudaSisselogitud("ei");
-  muudaSonum("");
-} 
 
   return (
-    <div className="App">
-      <div>{sonum}</div>
-      { sisselogitud=== "ei" && 
-      <div>
-      <label>Kasutajanimi</label> <br/>
-      <input ref={kasutajaNimiRef} type="text" /> <br/>
-      <label>Parool</label>
-      <input ref={paroolRef} type='password' /> <br/>
-      </div>}
-     { sisselogitud === "ei" && <button onClick={logiSisse}>Logi sisse</button>}
-      { sisselogitud === "jah" && <button onClick={logiValja}>Logi välja</button>}
-    
-    <div>--- SIIN ON VARASEM KODUTÖÖ</div>
+    <div>
+      <div className='navbar'>
     <Link to="/">
-    <button>Avaleht</button>
+    <button className='navbar-nupud'>Avaleht</button>
     </Link>
     <Link to="/kontakt">
-    <button>Kontaktide lehele</button>
+    <button className='navbar-nupud'>Kontaktide lehele</button>
     </Link>
     <Link to="/meist">
-    <button>Meist</button>
+    <button className='navbar-nupud'>Meist</button>
     </Link>
     <Link to="/kontakt">
-    <button>Seadetesse</button>
+    <button className='navbar-nupud'>Seadetesse</button>
     </Link>
-
+    <Link to="/leht"><button className='navbar-nupud'>Leht</button></Link>
+    </div>
     <Routes>
-        <Route path="" exact element={ <Avaleht/> } />
+        <Route path="/" exact element={ <Avaleht/> } />
         <Route path="kontakt" exact element={ <Kontakt/> } />
         <Route path="meist" exact element={ <Meist/> } />
         <Route path="seaded" exact element={ <Seaded/> } />
+        <Route path="leht" exact element={ <Leht/> } />
       </Routes>
   </div>
   
