@@ -1,6 +1,7 @@
 import { useState, useRef } from "react" 
 function SõneUurimine() {
     const [sonum, muudaNimi] = useState("")
+    const [sonum1, nimeVaartus] = useState("")
     const nimiRef = useRef()
 
     function lisaNimi() {
@@ -14,7 +15,8 @@ function SõneUurimine() {
             return;
         }
 
-        muudaNimi("Nimi lisatud");
+        muudaNimi("Nimi on lisatud");
+        nimeVaartus(nimiRef.current.value);
     }
   return (
     <div>
@@ -23,6 +25,7 @@ function SõneUurimine() {
         <input ref={nimiRef} type="text" /> <br/>
         <button onClick={lisaNimi}>Lisa nimi</button><br/><br/>
         <div>{sonum}</div>
+        <div>{sonum1}</div>
         <div>{}</div>
         
         </div>
@@ -30,5 +33,16 @@ function SõneUurimine() {
 
   )
 }
+
+
+// // const [words, setWords] = useState(['spray', 'elite', 'exuberant', 'destruction', 'present'])
+
+// const words = ['spray', 'elite', 'exuberant', 'destruction', 'present'];
+
+// const result = words.filter((word) => word.length > 6);
+
+// console.log(result);
+// // Expected output: Array ["exuberant", "destruction", "present"]
+
 
 export default SõneUurimine

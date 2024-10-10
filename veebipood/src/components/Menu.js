@@ -33,6 +33,15 @@ function Menu() {
   <Link to="registreeru">
     <button className="nupp">Registreeru</button>
   </Link>
+  <Link to="/hinnad">
+    <button className="nupp">Hinnad</button>
+  </Link>
+  <Link to="tooted">
+    <button className="nupp">Tooted</button>
+  </Link>
+  <Link to="tootajad">
+    <button className="nupp">Tootajad</button>
+  </Link>
   </div>
   
   )

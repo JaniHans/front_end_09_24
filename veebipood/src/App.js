@@ -12,6 +12,9 @@ import NotFound from './pages/NotFound';
 import LogiSisse from "./pages/LogiSisse";
 import Profiil from "./pages/Profiil";
 import Registreeru from "./pages/Registreeru";
+import Hinnad from './pages/Hinnad';
+import Tootajad from './pages/Tootajad';
+import Tooted from './pages/Tooted';
 
 
 // kahte tüüpi errorid:
@@ -44,6 +47,10 @@ function App() {
         <Route path="profiil" element={ <Profiil/> } />
         <Route path="logi-sisse" element= { <LogiSisse/>} />
         <Route path="registreeru" element= { <Registreeru/>} />
+
+        <Route path="hinnad" element={ <Hinnad/> } />
+        <Route path="tooted" element= { <Tooted/>} />
+        <Route path="tootajad" element= { <Tootajad/>} />
         
       </Routes>
     

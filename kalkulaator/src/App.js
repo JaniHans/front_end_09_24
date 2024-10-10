@@ -31,7 +31,7 @@ function App() {
       <br/>
       {vastus}  <br/>
       <button onClick={korruta}>KORRUTA</button>
-      <button onClick={lahuta}>KORRUTA</button>
+      <button onClick={lahuta}>LAHUTA</button>
       <button onClick={jaga}>JAGA</button>
       <button onClick={liida}>LIIDA</button>
       
