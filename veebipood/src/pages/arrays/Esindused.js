@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import esindusedJSON from "../data/esindused.json";
+import esindusedJSON from "../../data/esindused.json";
 
 
 function Esindused() {

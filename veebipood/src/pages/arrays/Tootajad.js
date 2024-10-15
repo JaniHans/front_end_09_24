@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import tootajadFailist from "../data/tootajad.json";
+import tootajadFailist from "../../data/tootajad.json";
 
 // Välja kuvada töötajad: mõtle ise 10x eesnime välja
 // 2. Sortreerida A-Z, Z-A, tähed kasvavalt, tähed kahanevalt, A-Z teise tähe järgi

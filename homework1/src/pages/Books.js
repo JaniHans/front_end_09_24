@@ -47,7 +47,8 @@ function Books() {
     }
 
     const lengthWords = () => {
-        raamatud.split(" ")
+        raamatud.sort((a, b) => a.split(" ").length -b.split("").length);
+        setRaamatud(raamatud.slice());
     }
 
     const eelViimane = () => {

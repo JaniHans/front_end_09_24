@@ -1,5 +1,5 @@
 import React , { useState } from 'react'
-import hinnadFailist from "../data/hinnad.json"
+import hinnadFailist from "../../data/hinnad.json"
 
 function Hinnad() {
     const [hinnad, setHinnad] = useState(hinnadFailist.slice());
@@ -44,6 +44,7 @@ function Hinnad() {
 
         <button onClick={filtreeriSuuremKui100}>Suurem kui 100</button>
         <button onClick={filtreeriVaiksemKui150}>Väiksem kui 150</button>
+        <br /><br />
         {hinnad.map(hind => <button>{hind}</button>)}
         {/* // mille seast ta filtreerima hakkab jälle hinnad */}
         <br/>

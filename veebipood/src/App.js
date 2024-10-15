@@ -6,15 +6,19 @@ import Ostukorv from './pages/Ostukorv';
 import Kinkekaart from './pages/Kinkekaart';
 import Seaded from './pages/Seaded';
 import Lisatoode from './pages/Lisatoode';
-import Esindused from './pages/Esindused';
+import Esindused from './pages/arrays/Esindused';
 import Menu from './components/Menu';
 import NotFound from './pages/NotFound';
 import LogiSisse from "./pages/LogiSisse";
 import Profiil from "./pages/Profiil";
 import Registreeru from "./pages/Registreeru";
-import Hinnad from './pages/Hinnad';
-import Tootajad from './pages/Tootajad';
-import Tooted from './pages/Tooted';
+import Hinnad from './pages/arrays/Hinnad';
+import Tootajad from './pages/arrays/Tootajad';
+import Tooted from './pages/arrays/Tooted';
+import HaldaTootajad from './pages/halda/HaldaTootajad';
+import HaldaTooted from './pages/halda/HaldaTooted';
+import HaldaHinnad from './pages/halda/HaldaHinnad';
+import HaldaEsindused from './pages/halda/HaldaEsindused';
 
 
 // kahte tüüpi errorid:
@@ -42,16 +46,23 @@ function App() {
         <Route path="/osta-kinkekaart" element={ <Kinkekaart/>}/> 
         <Route path="seaded" element={ <Seaded/>}/> 
         <Route path="lisa-toode" element={ <Lisatoode/>}/> 
+
         <Route path="esindused" element={ <Esindused/>}/>
         <Route path="*" element={ <NotFound/> } />
         <Route path="profiil" element={ <Profiil/> } />
         <Route path="logi-sisse" element= { <LogiSisse/>} />
         <Route path="registreeru" element= { <Registreeru/>} />
 
+        <Route path="esindused" element={ <Esindused/>}/>
         <Route path="hinnad" element={ <Hinnad/> } />
         <Route path="tooted" element= { <Tooted/>} />
         <Route path="tootajad" element= { <Tootajad/>} />
         
+        <Route path="halda-esindused" element={ <HaldaEsindused/>}/>
+        <Route path="halda-hinnad" element={ <HaldaHinnad/> } />
+        <Route path="halda-tooted" element= { <HaldaTooted/>} />
+        <Route path="halda-tootajad" element= { <HaldaTootajad/>} />
+
       </Routes>
     
     {/* FOOTER */}

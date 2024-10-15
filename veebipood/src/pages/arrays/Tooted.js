@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import tootedFailist from "../data/tooted.json"
+import tootedFailist from "../../data/tooted.json"
 
 // Proovida võimalikult kaua ise
 
