@@ -118,6 +118,10 @@ table {
   background-color: aqua;
 }
 
+.main_numbrid {
+  text-align: center;
+}
+
 .lds-hourglass,
 .lds-hourglass:after {
   box-sizing: border-box;

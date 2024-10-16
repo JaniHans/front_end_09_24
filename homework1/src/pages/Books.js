@@ -25,6 +25,7 @@ function Books() {
      setRaamatud(failistbooks);
     }
 
+    // Sortreerimine
     const sortAZ = () => {
         raamatud.sort();
         // raamatud.sort((a, b) => a.localeCompare(b))
@@ -47,15 +48,45 @@ function Books() {
     }
 
     const lengthWords = () => {
-        raamatud.sort((a, b) => a.split(" ").length -b.split("").length);
+        raamatud.sort((a, b) => a.split(" ").length - b.split("").length);
         setRaamatud(raamatud.slice());
     }
 
     const eelViimane = () => {
-        raamatud.sort((a, b) => a.qn.localeCompare(b.qn));
+        raamatud.sort((a, b) => a.charCodeAt(a.length - 2) - b.charCodeAt(b.length - 2));
         setRaamatud(raamatud.slice());
     }
 
+    // Filtreerimine
+    const allesThe = () => {
+        const vastus  = failistbooks.filter(the => the.toLowerCase().includes("the"));
+        setRaamatud(vastus);
+    }
+
+    const allesWithAnd = () => {
+        const vastus = failistbooks.filter(and => and.includes("and"));
+        setRaamatud(vastus);
+    }
+
+    const moreThanWithTen = () => {
+        const vastus = failistbooks.filter(letters => letters.length > 10);
+        setRaamatud(vastus);
+    }
+
+    const lessThan7Letters = () => {
+        const vastus = failistbooks.filter(letters => letters.length < 7);
+        setRaamatud(vastus);
+    }
+    
+    const morethanThreeWords = () => {
+        const vastus = failistbooks.filter(words => words.split(" ").length >= 3);
+        setRaamatud(vastus);
+    }
+
+    const eelViimaneC = () => {
+        const vastus = failistbooks.filter(words => words[words.length - 2] === "c");
+        setRaamatud(vastus);
+    }
 
   return (
     <div>
@@ -70,12 +101,12 @@ function Books() {
         <br></br>
         {raamatud.map(raamat => <div>{raamat}</div>)}<br></br>
         <div>Filteerimise nupud:</div>
-        <button>Jäta alles "the" algavad</button>
-        <button>Keskel on and</button>
-        <button>Rohkem kui 10 tähemärki</button>
-        <button>Vähem kui 7 tähemärki</button>
-        <button>Kolm või rohkem sõna</button>
-        <button>Eelviimane täht on "c"</button>
+        <button onClick={allesThe}>Jäta alles "the" algavad</button>
+        <button onClick={allesWithAnd}>Keskel on and</button>
+        <button onClick={moreThanWithTen}>Rohkem kui 10 tähemärki</button>
+        <button onClick={lessThan7Letters}>Vähem kui 7 tähemärki</button>
+        <button onClick={morethanThreeWords}>Kolm või rohkem sõna</button>
+        <button onClick={eelViimaneC}>Eelviimane täht on "c"</button>
     </div>
   )
 }

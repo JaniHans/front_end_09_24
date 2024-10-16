@@ -6,6 +6,7 @@ import Seaded from "./pages/Seaded";
 import Avaleht from "./pages/Avaleht"
 import Leht from './pages/Leht';
 import Books from './pages/Books';
+import Numbrid from './pages/Numbrid';
 
 
 
@@ -33,6 +34,9 @@ function App() {
     <Link to="/books">
     <button className='navbar-nupud'>Raamatud</button>
     </Link>
+    <Link to="/numbrid">
+    <button className='navbar-nupud'>Numbrid</button>
+    </Link>
     </div>
     <Routes>
         <Route path="/" exact element={ <Avaleht/> } />
@@ -41,6 +45,7 @@ function App() {
         <Route path="seaded" exact element={ <Seaded/> } />
         <Route path="leht" exact element={ <Leht/> } />
         <Route path="books" exact element={ <Books/> } />
+        <Route path="numbrid" exact element={ <Numbrid/> } />
       </Routes>
   </div>
   
