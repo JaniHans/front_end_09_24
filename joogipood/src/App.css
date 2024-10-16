@@ -1,0 +1,15 @@
+
+
+.navbar {
+
+  position: fixed;
+  top: 15px;
+  right: 25px;
+  background-color: aqua;
+  color: white;
+}
+
+.haldajooke_main {
+
+  text-align: center;
+}
