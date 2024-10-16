@@ -7,6 +7,7 @@ import SõneArvuKombineerimine from './pages/SõneArvuKombineerimine';
 import AlgabTähemärgiga from './pages/AlgabTähemärgiga';
 import PikkuseKontroll from './pages/PikkuseKontroll';
 import { useState } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [kasutajanimi, muudaKasutajanimi] = useState("Kasutaja1");

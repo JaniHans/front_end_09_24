@@ -1,16 +1,17 @@
-import React , {useState, useRef} from 'react'
+import React , {useRef} from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+
 
 function AlgabTähemärgiga() {
   
-  const arvuti = useRef()
-  const [sonum, setSonum] = useState("");
+  const arvutiRef = useRef()
+
 
   const tahtA = () => {
-    const arvutiFormaadis = arvuti.lowerCase();
-    if (arvutiFormaadis.current.value[0] !== "a") {
-      setSonum("Arvuti nimetus peab algama 'a' tähega");
+    if (arvutiRef.current.value.startsWith("A") !== true) {
+      toast.error("Arvuti nimetus peab algama suure 'A' tähega");
     } else {
-      setSonum(sonum);
+      toast("Arvuti algab a tähega");
     }
   }
 
@@ -18,10 +19,12 @@ function AlgabTähemärgiga() {
 
     <div>
       <label type="text">Arvutid</label><br/>
-      <input ref={arvuti} type="text"/><br/>
+      <input ref={arvutiRef} type="text"/><br/>
       <button onClick={tahtA}>Kontrolli</button><br/>
-      <div>{sonum}</div>
-      
+      <ToastContainer 
+            position="bottom-right"
+            autoClose={4000}
+            theme="dark"/>
 
     </div>
   )
