@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import tootedFailist from "../../data/tooted.json"
+import ostukorvJSON from "../../data/ostukorv.json"
+import { ToastContainer, toast } from 'react-toastify';
 
 // Proovida võimalikult kaua ise
 
@@ -46,37 +48,46 @@ function Tooted() {
   }
 
   const filterFirstA = () => {
-    const vastus = margid.filter( mark => mark[0] === "A");
+    const vastus = tootedFailist.filter( mark => mark[0] === "A");
     autoMargid(vastus);
   }
 
   const filterN = () => {
-    const vastus = margid.filter(mark => mark[0] === "N");
+    const vastus = tootedFailist.filter(mark => mark[0] === "N");
     autoMargid(vastus)
   }
 
   const filterB = () => {
-    const vastus = margid.filter(mark => mark[0] === "B");
+    const vastus = tootedFailist.filter(mark => mark[0] === "B");
     autoMargid(vastus);
   }
 
   const filterT = () => {
-    const vastus = margid.filter(mark => mark[0] === "T");
+    const vastus = tootedFailist.filter(mark => mark[0] === "T");
     autoMargid(vastus);
   }
 
   const filterThirdS = () => {
-    const vastus = margid.filter(mark => mark[2] === "s");
+    const vastus = tootedFailist.filter(mark => mark[2] === "s");
     autoMargid(vastus);
   }
 
   const filterAtLeast5Letters = () => {
-    const vastus = margid.filter(mark => mark.length >= 5);
+    const vastus = tootedFailist.filter(mark => mark.length >= 5);
     autoMargid(vastus);
+  }
+
+  const lisaOstukorv = (auto) => {
+    ostukorvJSON.push(auto)
+    toast.success("Ostukorvi lisatud!");
   }
 
   return (
     <div>
+       <ToastContainer 
+            position="bottom-right"
+            autoClose={4000}
+            theme="dark"/>
       <button onClick={sortreeridaAZ}>Sortreeri AZ</button>
       <button onClick={sortreeridaZA}>Sortreeri ZA</button>
       <button onClick={sortreeridatahedKasvavalt}>Sortreerida kasvavalt</button>
@@ -92,7 +103,12 @@ function Tooted() {
     <br/>
     <button onClick={reset}>RESET</button>
     <br/>
-    {margid.map(autod => <div>{autod}</div>)}
+    {margid.map(auto => 
+    <div key={auto.nimi}>
+      <img className="pilt"src={auto.pilt} alt="" />
+      {auto.nimi}
+      <button onClick={() => lisaOstukorv(auto)}>Lisa ostukorvi</button>
+      </div>)}
     <br/>
     </div>
   )

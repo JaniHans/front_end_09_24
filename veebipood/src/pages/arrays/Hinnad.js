@@ -1,5 +1,6 @@
 import React , { useState } from 'react'
 import hinnadFailist from "../../data/hinnad.json"
+import { Link } from "react-router-dom"
 
 function Hinnad() {
     const [hinnad, setHinnad] = useState(hinnadFailist.slice());
@@ -9,28 +10,28 @@ function Hinnad() {
     }
 
     const sorteeriKasvavalt = () => {
-        hinnad.sort((a, b) => a - b);
+        hinnad.sort((a, b) => a.number - b.number);
         setHinnad(hinnad.slice());
     }
 
     const sortreeriKahanevalt = () => {
-        hinnad.sort((a, b) => b - a);
+        hinnad.sort((a, b) => b.number - a.number);
         setHinnad(hinnad.slice());
 
     }
 
     const sortreeri = () => {
-        hinnad.sort();
+        hinnad.sort((a, b) => String(a.number).localeCompare(String(b.number)));
         setHinnad(hinnad.slice());
     }
 
     const filtreeriSuuremKui100 = () => {
-        const vastus = hinnadFailist.filter(hind => hind >= 100)
+        const vastus = hinnadFailist.filter(hind => hind.number >= 100)
         setHinnad(vastus)
     }
 
     const filtreeriVaiksemKui150 = () => {
-        const vastus = hinnadFailist.filter(hind => hind < 150)
+        const vastus = hinnadFailist.filter(hind => hind.number < 150)
         setHinnad(vastus)
     }
 
@@ -45,7 +46,13 @@ function Hinnad() {
         <button onClick={filtreeriSuuremKui100}>Suurem kui 100</button>
         <button onClick={filtreeriVaiksemKui150}>Väiksem kui 150</button>
         <br /><br />
-        {hinnad.map(hind => <button>{hind}</button>)}
+        {hinnad.map((hind, index) => 
+        <Link to={"/hind/" + index}>
+        
+        <button>{hind.number}
+            </button>
+        </Link>
+        )}
         {/* // mille seast ta filtreerima hakkab jälle hinnad */}
         <br/>
         <button onClick={reset}>Reset</button>

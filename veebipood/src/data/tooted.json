@@ -1,1 +1,13 @@
-["Nobe", "BMW", "Tesla", "Nissan", "Toyota", "Bentley", "Mercedes", "Honda", "Maserati", "Ferrari"]
+[
+  {"nimi": "Nobe", "hind": 25000, "aktiivne": true, "pilt": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Nobe%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0061%29.jpg/280px-Nobe%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0061%29.jpg"},
+  {"nimi": "BMW", "hind": 45000, "aktiivne": true, "pilt": "https://www.bmwgroup.com/content/grpw/websites/bmwgroup_com/en/sustainability/_jcr_content/main/highlightteaser_copy.coreimg.82.1280.jpeg/1721054599658/240715-bmwgroup-nachhaltigkeit-header-2560x896px.jpeg"},
+  {"nimi": "Tesla", "hind": 85000, "aktiivne": true, "pilt": "https://cdn.drivek.com/configurator-imgs/cars/it/Original/TESLA/MODEL-3/43005_BERLINA-3-VOLUMI-4-PORTE/tesla-model-3-front-view.jpg"},
+  {"nimi": "Nissan", "hind": 35000, "aktiivne": true, "pilt": ""},
+  {"nimi": "Toyota", "hind": 55000, "aktiivne": true, "pilt": ""},
+  {"nimi": "Bentley", "hind": 105000, "aktiivne": true, "pilt": "https://padova.bentleymotors.com/picserver1/userdata/1/31595/3FAdVwEMPE/m_my25_gt_speed_front%20600x300.png"},
+  {"nimi": "Mercedes", "hind": 9500, "aktiivne": true, "pilt": ""},
+  {"nimi": "Honda", "hind": 40000, "aktiivne": true, "pilt": ""},
+  {"nimi": "Maserati", "hind": 95000, "aktiivne": true, "pilt": ""},
+  {"nimi": "Ferrari", "hind": 125000, "aktiivne": true, "pilt": ""}
+
+]
