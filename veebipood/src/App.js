@@ -75,16 +75,15 @@ function App() {
 
         <Route path="muuda-esindus/:jarjekorranumber" element={ <MuudaEsindus/>}/>
         <Route path="muuda-hind/:ix" element={ <MuudaHind/> } />
-        <Route path="muuda-toode" element= { <MuudaToode/>} />
-        <Route path="muuda-tootaja" element= { <MuudaTootaja/>} />
+        <Route path="muuda-toode/:qwerty" element= { <MuudaToode/>} />
+        <Route path="muuda-tootaja/:asdasd" element= { <MuudaTootaja/>} />
 
         <Route path="esindus/:jrknr" element={ <YksEsindus/>}/>
        
 
-        <Route path="esindus" element={ <YksEsindus/>}/>
         <Route path="hind/:i" element={ <YksHind/> } />
-        <Route path="toode" element= { <YksToode/>} />
-        <Route path="tootaja" element= { <YksTootaja/>} />
+        <Route path="toode/:t" element= { <YksToode/>} />
+        <Route path="tootaja:j" element= { <YksTootaja/>} />
 
      
 

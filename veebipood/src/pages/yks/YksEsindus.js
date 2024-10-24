@@ -17,7 +17,7 @@ function YksEsindus() {
         <div>Nimi: {leitud.nimi}</div>
         <div>Telefoninumber: {leitud.tel}</div>
         <div>Aadress: {leitud.aadress}</div>
-        <div>{leitud}</div>
+        {/* <div>{leitud}</div> <--- ei saa, sest on objekt*/ }
     </div>
   )
 }

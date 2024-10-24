@@ -1,6 +1,6 @@
 import React , {useState, useRef} from 'react';
 import hinnadJSON from "../../data/hinnad.json";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function HaldaHinnad() {
     const [hinnad, setHinnad] = useState(hinnadJSON.slice());

@@ -1,5 +1,6 @@
 import React , {useState, useRef} from 'react'
 import tootedFailist from "../../data/tooted.json"
+import { Link } from 'react-router-dom';
 
 function HaldaTooted() {
   const [tooted, setTooted] = useState(tootedFailist.slice());
@@ -37,7 +38,7 @@ function HaldaTooted() {
   
   const arvutaKokku = () => {
     let summa = 0;
-    tootedFailist.forEach(toode => summa = summa + toode.length);
+    tootedFailist.forEach(toode => summa = summa + Number(toode.hind));
     return summa;
   }
 
@@ -59,7 +60,7 @@ function HaldaTooted() {
     // Proovida võimalikult vaatamata.
     // Kustuta, Lisa, Otsi, Arvuta toodete tähemärgid kokku.
     <div>
-      <div>Tähti kokku: {arvutaKokku()}</div>
+      <div>Tooteid kokku: {arvutaKokku()}</div>
       <label>Halda tooted:</label>
       <br/>
       <input ref={otsingR} type="text" />
@@ -78,13 +79,38 @@ function HaldaTooted() {
       <br />
       <button onClick={lisa}>Lisa</button>
 
-      {tooted.map((toode, index) => 
-      <div>
-        
-        {toode}
-        <button onClick={() => kustuta(index)}>X</button>
-      </div>)}
-    </div>
+      {/* Siia tuleb tabel */}
+    <table>
+      <thead>
+        <tr>
+          <th>Pilt</th>
+          <th>Indeks</th>
+          <th>Nimi</th>
+          <th>Hind</th>
+          <th>Tegevused</th>
+          </tr>
+          </thead>
+          <tbody>
+            {tooted.map((toode, index) =>
+            <tr className={toode.aktiivne ? "" : "mitteaktiivne" } key = {index}>
+              
+              <td><img style={{width: "50px"}} src={toode.pilt} alt="" /></td>
+              <td>{index}</td>
+              <td>{toode.nimi}</td>
+              <td>{toode.hind}</td>
+              
+              <td>
+            <button onClick={() => kustuta(index)}>X</button>
+            <Link to={"/muuda-toode/" + index }>
+            <button>Muuda</button>
+            </Link>
+            </td>
+            </tr>)}
+
+          </tbody>
+          </table>
+      
+</div>
   )
 }
 

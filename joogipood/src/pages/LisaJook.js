@@ -1,10 +1,10 @@
 import React , {useState, useRef} from 'react'
 import joogidFailist from "../data/joogid.json"
 
+
 function LisaJook() {
     const [joogid, haldaJoogid] = useState(joogidFailist.slice());
     const jookRef = useRef()
-
 
     const lisaUusJook = () => {
         joogidFailist.push(jookRef.current.value);

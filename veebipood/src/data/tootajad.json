@@ -1,1 +1,15 @@
-["Mari", "Rein", "Anne", "Lauri", "Indrek", "Kolja", "Kaspar", "Janne", "Emma", "Kai", "Maia"]
+[
+  {"nimi": "Mari", "amet": "Direktor", "tel": 513747834},
+  {"nimi": "Rein", "amet": "Peainsener", "tel": 513741834},
+  {"nimi": "Anne", "amet": "Tootmisjuht", "tel": 513727834},
+  {"nimi": "Lauri", "amet": "Arendaja", "tel": 513747833},
+  {"nimi": "Indrek", "amet": "Logistik", "tel": 513747831},
+  {"nimi": "Kolja", "amet": "Kokk", "tel": 513747832},
+  {"nimi": "Kaspar", "amet": "Avalikud suhted", "tel": 513747834},
+  {"nimi": "Janne", "amet": "Turundaja", "tel": 513747834},
+  {"nimi": "Emma", "amet": "Arst", "tel": 513747834},
+  {"nimi": "Kai", "amet": "Direktori asetäitja", "tel": 513747814},
+  {"nimi": "Maia", "amet": "Tarkvara insener", "tel": 513747834},
+  {"nimi": "Sonia", "amet": "Turundaja", "tel": 513747834}
+
+]

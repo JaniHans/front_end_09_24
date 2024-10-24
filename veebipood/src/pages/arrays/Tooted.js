@@ -105,9 +105,12 @@ function Tooted() {
     <br/>
     {margid.map(auto => 
     <div key={auto.nimi}>
-      <img className="pilt"src={auto.pilt} alt="" />
-      {auto.nimi}
-      <button onClick={() => lisaOstukorv(auto)}>Lisa ostukorvi</button>
+      <img className={auto.aktiivne ? "pilt" : "mitteaktiivne-pilt"} src={auto.pilt} alt="" />
+      <div>{auto.nimi}</div>
+      <div>{auto.hind}€</div>
+      <div></div>
+      
+      <button disabled={ auto.aktiivne === false ? true: false} onClick={() => lisaOstukorv(auto)}>Lisa ostukorvi</button>
       </div>)}
     <br/>
     </div>

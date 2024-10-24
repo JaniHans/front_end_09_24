@@ -38,10 +38,11 @@ function HaldaEsindused() {
     const lisa = () => {
         // esindused.push() --> siis teeb ainult siia lehele selle lisamise, teistele lehtedele mitte
         /// Saku ""
-        esindusedJSON.push({
-          nimi: esindusRef.current.value,
-          aadress: aadressRef.current.value,
-          tel: telefonRef.current.value
+        esindusedJSON.push(
+            {
+          "nimi": esindusRef.current.value,
+          "aadress": aadressRef.current.value,
+          "tel": telefonRef.current.value
         }); // --> siis teeb faili juurde lisamise (me küll ise ei näe)
         // (me küll ise ei näe seda failis, aga mälupõhiselt ta on seal)
         // see tähendab , et ka teised lehed näevad seda lisamist, kuna nemad kasutavad sama faili
@@ -101,17 +102,14 @@ function HaldaEsindused() {
             </thead>
             <tbody>
             {esindused.map((esindus, index) => 
-        <tr>
+        <tr key={index}>
             <td>{index}</td>
             <td>{esindus.nimi}</td>
             <td>{esindus.aadress}</td>
             <td>{esindus.tel}</td>
-            <td>
-            <button onClick={() => kustuta(index)}>x</button>
-            <Link to={"/muuda-esindus/" + index}>
-                <button>Muuda</button>
-            </Link>
-            </td>
+            <td><button onClick={() => kustuta(index)}>x</button>
+            <Link to={"/muuda-esindus/" + index}><button>Muuda</button></Link></td>
+           
             </tr>)}
             </tbody>
         </table>

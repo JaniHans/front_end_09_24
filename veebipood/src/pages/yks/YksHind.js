@@ -16,7 +16,7 @@ function YksHind() {
         <div>{i}</div>
         <div>Hind: {leitud.number}</div>
         <div>Lisaja: {leitud.lisaja}</div>
-        <div>{leitud}</div>
+       
     </div>
   )
 }

@@ -69,3 +69,12 @@ th {
 th, td {
   border: 1px solid black;
 }
+
+.mitteaktiivne {
+  background-color: red;
+}
+
+.mitteaktiivne-pilt {
+ filter: grayscale(100%);
+ height: 100px;
+}

@@ -1,13 +1,12 @@
 import React , {useState} from 'react'
 import joogidFailist from "../data/joogid.json"
+import {Link } from "react-router-dom"
+
 
 function Avaleht() {
     const [joogid, haldaJoogid] = useState(joogidFailist.slice());
 
-    const kustuta = () => {
-        joogidFailist.splice(0, 1);
-        haldaJoogid(joogidFailist.slice());
-    }
+
   return (
     <div className='haldajooke_main'>
     <br />
@@ -17,14 +16,16 @@ function Avaleht() {
     <div>
         {joogid.map((jook, index) =>
         <div>
-            {jook}
-            <button onClick={() => kustuta(index)}>X</button>
+          <Link to={"/jook/" + index}>
+          <span>{jook}</span>
+          </Link>
+      
         </div>)}
     </div>
 
     
-</div>
-  )
+</div> )
+ 
 }
 
 export default Avaleht

@@ -9,7 +9,7 @@ function MuudaHind() {
 
     const muuda = () => {
       hinnadJSON[ix] = {
-      "number": hindRef.current.value,
+      "number": Number(hindRef.current.value),
       "lisaja": "Malle"
     };
     }

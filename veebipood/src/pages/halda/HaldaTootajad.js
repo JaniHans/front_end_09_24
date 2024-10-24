@@ -1,32 +1,39 @@
 import React ,{useRef, useState} from 'react'
+import {Link} from "react-router-dom"
 import tootajadFailist from "../../data/tootajad.json";
 
 function HaldaTootajad() {
   const [tootajad, setTootajad] = useState(tootajadFailist.slice());
   const otsinR = useRef();
-  const lisaR = useRef();
+  const nimiRef = useRef();
+  const ametRef = useRef();
+  const telRef = useRef();
 
   const kustutaEsimene = () => {
     tootajad.splice(0, 1);
-    setTootajad(tootajad);
+    setTootajad(tootajadFailist.slice());
   }
 
   const kustutaTeine = () => {
     tootajad.splice(1, 1);
-    setTootajad(tootajad);
+    setTootajad(tootajadFailist.slice());
   }
   
   const kustutaKolmas = () => {
     tootajad.splice(2, 1);
-    setTootajad(tootajad);
+    setTootajad(tootajadFailist.slice());
   }
 
   const kustutaNeljas = () => {
     tootajad.splice(3, 1);
-    setTootajad(tootajad);
+    setTootajad(tootajadFailist.slice());
   }
   const lisa = () => {
-    tootajadFailist.push(lisaR.current.value);
+    tootajadFailist.push( {
+      "nimi": nimiRef.current.value,
+      "amet": ametRef.current.value,
+      "tel": telRef.current.value
+    })
     setTootajad(tootajadFailist.slice());
   }
 
@@ -37,7 +44,7 @@ function HaldaTootajad() {
 
   const arvutaKokku = () => {
     let summa = 0;
-    tootajadFailist.forEach(sum => summa = summa + sum.length);
+    tootajadFailist.forEach(isik => summa = summa + isik.nimi.length);
     return summa;
   }
 
@@ -61,16 +68,43 @@ function HaldaTootajad() {
         {tootajad.length >= 3 && <button onClick={kustutaKolmas}>Kustuta kolmas</button>}
         {tootajad.length >= 4 &&<button onClick={kustutaNeljas}>Kustuta neljas</button>}
       <br />
-        <input ref={lisaR} type="text" /><br />
+        <label>Töötaja nimi</label><br/>
+        <input ref={nimiRef} type="text" /><br />
+        <label>Töötaja amet</label><br/>
+        <input ref={ametRef} type="text" /><br/>
+        <label>Töötaja telefon</label><br/>
+        <input ref={telRef} type="text" /><br/>
         <button onClick={lisa}>LISA</button>
 
-        <br />
-        {tootajad.map((tootaja, index) => 
-        <div>
-          {tootaja}
-          <button onClick={() => kustuta(index)}>X</button>
-      </div>)}
+        <table>
+          <thead>
+            <tr>
+              <th>Indeks</th>
+              <th>Nimi</th>
+              <th>Amet</th>
+              <th>Telefon</th>
+              <th>Tegevused</th>
+            </tr>
+          </thead>
 
+        <tbody>
+        
+        {tootajad.map((tootaja, index) => 
+        <tr key = {index}>
+          <td>{index}</td>
+          <td>{tootaja.nimi}</td>
+          <td>{tootaja.amet}</td>
+          <td>{tootaja.tel}</td>
+          <td>
+          
+          <button onClick={() => kustuta(index)}>X</button>
+          <Link to={"/muuda-tootaja/" + index}>
+          <button>Muuda</button>
+          </Link>
+          </td>
+          </tr>)}
+          </tbody>
+      </table>
     </div>
   )
 }
