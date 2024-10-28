@@ -1,6 +1,6 @@
 import { Link, Navigate, Route, Routes} from 'react-router-dom'
 import './App.css';
-import LisaUusTegelane from './pages/lisaUusTegelane';
+import LisaUusTegelane from './pages/LisaUusTegelane';
 import LisaTegelane from './pages/LisaTegelane';
 import Avaleht from "./pages/Avaleht";
 import ValitudTegelased from './pages/ValitudTegelased';

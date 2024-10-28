@@ -39,6 +39,13 @@ function Meist() {
         }
     ]
 
+    const [valitud, uuendaValitud] = useState("");
+
+    const v6taYhendust = (tootaja) => {
+        n2itaKontakt(tootaja.telefon);
+        uuendaValitud(tootaja.nimi);
+    }
+
     return ( <div>
         
         {/* <div>Meie töötajad</div>
@@ -60,16 +67,20 @@ function Meist() {
         <br></br>
         { kontakt !== "" && <div>Tema kontakt: {kontakt}</div>}
         <br /> */}
-        <div><br />
-        {tootajad.map((tootaja, index) =>
-            
-            <div>{tootaja.Nimi}
-                {tootaja.Ala}
-                <button onClick={() => n2itaKontakt(tootaja.Telefon)}>Võta ühendust</button>
+        <div>
+            <br />
+            <div>See on meist leht, nähtav localhost:3000/meist aadressil</div>
+            <div>Meie töötajad:</div>
+            {/* VALITUD INIMENE: {valitud} */}
+            <div>{tootajad.map((tootaja) =>
+                <div className={tootaja.nimi === valitud ? "valitud" : undefined}>
+                <div>{tootaja.Nimi}</div>
+               <div> {tootaja.Ala}</div>
+                <button onClick={() => v6taYhendust(tootaja)}>Võta ühendust</button>
+                <br /><br />
+                </div>)}
+                
             </div>
-            
-
-    )}
         
         </div>
     </div>
