@@ -27,30 +27,42 @@ function Kliendid() {
     }
 
     const sortbyLat = () => {
-
+        kliendid.sort((a, b) => a.address.geo.lat.localeCompare(b.address.geo.lat));
+        lisaKliendid(kliendid.slice());
     }
 
     const sortByLonPositive = () => {
-        
+        const vastus = kliendid.filter(klient => klient.address.geo.lng > 0);
+        lisaKliendid(vastus);
     }
 
     const accIds = () => {
-        
+        let sum = 0;
+        kliendid.forEach(user => sum += user.id)
+        console.log(sum)
     }
 
     const addPrefix000 = () => {
-        
+        const vastus = kliendid.map(klient => ({...klient, phone: "000-" +klient.phone}));
+        lisaKliendid(vastus);
     }
 
     
     const onlyEmailsArray = () => {
-        
+        const vastus = kliendid.map(user => user.email);
+        lisaKliendid(vastus);
+        console.log(vastus);
     }
 
 
     
     const replaceCatchPhrase = () => {
-        
+        const vastus = kliendid.map(user => (
+        {...user, company: {...user.company, catchPhrase: user.company.catchPhrase.replaceAll("a", "e")}}
+
+        ));
+        lisaKliendid(vastus)
+        console.log(vastus);
     }
 
     
@@ -79,6 +91,7 @@ function Kliendid() {
     <div>{klient.id}</div>
     <div>{klient.name}</div>
     <div>{klient.username}</div>
+    <div>{klient.email}</div>
     <br />
     <div>{klient.address.street}</div>
         <div>{klient.address.suite}</div>
