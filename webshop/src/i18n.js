@@ -3,6 +3,7 @@ import { initReactI18next } from "react-i18next";
 import enJSON from "../src/i18n/en.json";
 import eeJSON from "../src/i18n/ee.json";
 import itJSON from '../src/i18n/it.json';
+import frJSON from '../src/i18n/fr.json';
 
 
 // the translations
@@ -17,6 +18,9 @@ const resources = {
   },
   it: {
     translation: itJSON
+  },
+  fr: {
+    translation: frJSON
   }
 };
 

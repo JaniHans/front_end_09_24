@@ -3,5 +3,15 @@
 "back" : "Tagasi pealehele",
 "add-product": "Lisa toode",
 "product-added-message" : "Toode lisatud!",
-"address-empty": "Address field is empty"
+"address-empty": "Address field is empty",
+ "webshop": "Veebipood",
+ "login" : "Logi sisse",
+ "register" : "Registreeri",
+ "cart-is-empty" : "Ostukorv on tühi",
+ "dropdown" : "Menüü",
+ "findshops" : "Poodide asukoht",
+ "wrong-password": "Vale parool",
+ "username": "Kasutajanimi",
+ "password": "Parool",
+ "enter": "Sisene"
 }

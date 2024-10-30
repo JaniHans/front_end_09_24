@@ -1,0 +1,20 @@
+{      
+    
+"cart": "Panier",
+"empty": "Panier vide",
+"back": "Retour à la page principale",
+"add-product": "Ajouter un produit",
+"product-added-message": "Produit ajouté au panier",
+"address-empty": "Le champ adresse est vide",
+"webshop": "Boutique en ligne",
+ "login" : "Se connecter",
+ "register" : "Registre",
+ "cart-is-empty" : "Le panier est vide",
+ "dropdown" : "Dérouler",
+ "findshops" : "Trouver des magasins",
+  "wrong-password": "Mot de passe incorrect",
+  "username": "Nom d'utilisateur",
+  "password": "Mot de passe",
+  "enter": "Entrer"
+    
+}

@@ -3,5 +3,15 @@
         "back" : "Back to main page",
         "add-product": "Add product",
         "product-added-message": "Item added",
-        "address-empty": "Address field is empty"
+        "address-empty": "Address field is empty",
+         "webshop": "Webshop",
+          "login" : "Log in",
+          "register" : "Create account",
+          "cart-is-empty" : "Shopping cart is empty",
+          "dropdown" : "Menu",
+          "findshops" : "Find shops",
+          "wrong-password": "Wrong password",
+          "username": "Username",
+        "password": "Password",
+        "enter": "Enter"
 }

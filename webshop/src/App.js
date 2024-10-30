@@ -1,5 +1,5 @@
 
-import { Routes, Route, Link} from 'react-router-dom'
+import { Routes, Route} from 'react-router-dom'
 import './App.css';
 import HomePage from './pages/global/HomePage';
 import ContactUs from './pages/global/ContactUs';
@@ -15,10 +15,12 @@ import MaintainShops from './pages/admin/MaintainShops';
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import NotFound from './pages/global/NotFound';
-import { useTranslation } from 'react-i18next';
+import NavigationBar from './components/NavigationBar';
+
+
 
   // Eng poes ka:
-  // Bootstrap          npm i bootstrap
+  //Bootstrap          npm i bootstrap
   // Emaili saatmine    npm i @emailjs
   // Kaardirakendus     npm i react-leaflet leaflet --> lisa mõned poed teise linna
   // T6lge                npm i react-i18next i18next --> lisa kolmas ja neljas keel
@@ -27,25 +29,15 @@ import { useTranslation } from 'react-i18next';
 
 
 function App() {
-
-  const { t, i18n } = useTranslation();
-
-  return (
+return (
 
 
     <div className='App'>
 
-
-
+ 
+  <NavigationBar/>
    
     
-    <Link to="cart">
-      <button>{t("cart")}</button>
-    </Link>
-    <br />
-    <button onClick={() => i18n.changeLanguage("en")}>EN</button>
-    <button onClick={() => i18n.changeLanguage("ee")}>EE</button>
-    <button onClick={() => i18n.changeLanguage("it")}>IT</button>
     <Routes>
       <Route path='' element={<HomePage />}></Route>
       <Route path='contact' element={<ContactUs />}></Route>

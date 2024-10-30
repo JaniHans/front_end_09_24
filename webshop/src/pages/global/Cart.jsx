@@ -38,7 +38,7 @@ function Cart() {
             <button onClick={() =>deleteItems(index)}>X</button>
     </div>)}
 
-    <div>Shopping cart is empty</div>
+    <div>{t("cart-is-empty")}</div>
 
             <Link to="/">
             <button>{t("back")}</button>

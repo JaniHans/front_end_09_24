@@ -3,5 +3,16 @@
         "back" : "Torna alla pagina principale",
         "add-product": "Aggiungere prodotto",
         "product-added-message": "Prodotto aggiunto al carello",
-        "address-empty": "Address field is empty"
+        "address-empty": "Address field is empty",
+         "webshop": "Negozio online",
+         "register" : "Registro",
+         "login" : "Login",
+         "cart-is-empty" : "Il carello è vuoto",
+         "dropdown" : "Cadere in picchiata",
+         "findshops" : "Trova Negozi",
+         "wrong-password": "Password errata",
+         "username": "Nome utente",
+        "password": "Password",
+        "enter": "Entra"
+
 }
