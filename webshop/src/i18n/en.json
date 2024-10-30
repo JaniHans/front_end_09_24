@@ -1,0 +1,7 @@
+{   "cart": "To cart",
+        "empty": "Empty cart",
+        "back" : "Back to main page",
+        "add-product": "Add product",
+        "product-added-message": "Item added",
+        "address-empty": "Address field is empty"
+}

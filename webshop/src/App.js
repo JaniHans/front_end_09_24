@@ -1,4 +1,4 @@
-import NavigationBar from './components/NavigationBar';
+
 import { Routes, Route, Link} from 'react-router-dom'
 import './App.css';
 import HomePage from './pages/global/HomePage';
@@ -15,6 +15,7 @@ import MaintainShops from './pages/admin/MaintainShops';
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import NotFound from './pages/global/NotFound';
+import { useTranslation } from 'react-i18next';
 
   // Eng poes ka:
   // Bootstrap          npm i bootstrap
@@ -26,6 +27,9 @@ import NotFound from './pages/global/NotFound';
 
 
 function App() {
+
+  const { t, i18n } = useTranslation();
+
   return (
 
 
@@ -33,12 +37,15 @@ function App() {
 
 
 
-    <NavigationBar/>
-
+   
     
     <Link to="cart">
-      <button>Shopping cart</button>
+      <button>{t("cart")}</button>
     </Link>
+    <br />
+    <button onClick={() => i18n.changeLanguage("en")}>EN</button>
+    <button onClick={() => i18n.changeLanguage("ee")}>EE</button>
+    <button onClick={() => i18n.changeLanguage("it")}>IT</button>
     <Routes>
       <Route path='' element={<HomePage />}></Route>
       <Route path='contact' element={<ContactUs />}></Route>

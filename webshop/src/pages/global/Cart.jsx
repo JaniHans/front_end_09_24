@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
 import React, {useState} from 'react'
 import cartFile from "../../data/cart.json"
+import { useTranslation } from 'react-i18next'
 //OSTUKORV TEHA
 
 function Cart() {
+    const { t } = useTranslation()
     const [products, setProducts] = useState(cartFile)
  
     const emptyCart = () => {
@@ -27,7 +29,7 @@ function Cart() {
     return (
     <div>
         <div>{calculateSum()}</div>
-        {products.length > 0 && <button onClick={emptyCart}>Empty cart</button>}
+        {products.length > 0 && <button onClick={emptyCart}>{t("empty")}</button>}
         {products.map((product, index) =>
         <div>
             <img style={{width: "100px"}} src={product.image} alt="not found"/>
@@ -39,7 +41,7 @@ function Cart() {
     <div>Shopping cart is empty</div>
 
             <Link to="/">
-            <button>Back to Homepage</button>
+            <button>{t("back")}</button>
             </Link>
 
         </div>

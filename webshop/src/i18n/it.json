@@ -1,0 +1,7 @@
+{   "cart": "Carello",
+        "empty": "Carello vuoto",
+        "back" : "Torna alla pagina principale",
+        "add-product": "Aggiungere prodotto",
+        "product-added-message": "Prodotto aggiunto al carello",
+        "address-empty": "Address field is empty"
+}
