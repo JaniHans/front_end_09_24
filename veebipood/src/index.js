@@ -1,5 +1,6 @@
 import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // let muutuja = 2
 //. toast background color: green; 
 import ReactDOM from 'react-dom/client';
@@ -9,6 +10,10 @@ import './index.css';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import { BrowserRouter} from "react-router-dom";
+import 'leaflet/dist/leaflet.css';
+import './i18n';
+
+
 
 // Navigeerimiseks (URLi ja sisu vahetuseks)
 // 1. npm install react router dom --> lisab vajalikud koodifailid 

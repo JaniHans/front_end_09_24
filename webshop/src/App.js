@@ -1,5 +1,5 @@
 import NavigationBar from './components/NavigationBar';
-import { Routes, Route, } from 'react-router-dom'
+import { Routes, Route, Link} from 'react-router-dom'
 import './App.css';
 import HomePage from './pages/global/HomePage';
 import ContactUs from './pages/global/ContactUs';
@@ -16,13 +16,29 @@ import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import NotFound from './pages/global/NotFound';
 
-
+  // Eng poes ka:
+  // Bootstrap          npm i bootstrap
+  // Emaili saatmine    npm i @emailjs
+  // Kaardirakendus     npm i react-leaflet leaflet --> lisa mõned poed teise linna
+  // T6lge                npm i react-i18next i18next --> lisa kolmas ja neljas keel
+  // Kata k6ik t6lgetega webshop
+  //
 
 
 function App() {
   return (
+
+
     <div className='App'>
+
+
+
     <NavigationBar/>
+
+    
+    <Link to="cart">
+      <button>Shopping cart</button>
+    </Link>
     <Routes>
       <Route path='' element={<HomePage />}></Route>
       <Route path='contact' element={<ContactUs />}></Route>

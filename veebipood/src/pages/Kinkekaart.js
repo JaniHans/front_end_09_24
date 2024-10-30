@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import ostukorvJSON from "../data/ostukorv.json";
+import { ContactUs } from "../components/ContactUs";
 
 // usestate -->> usestate is not defined
 
@@ -58,6 +59,9 @@ function Kinkekaart() {
 
   return (
     <div>
+      <br /><br />
+      <div>Anna meile tagasisidet:</div>
+      <ContactUs/>
       <button
         className={summa === 20 ? "summa-valitud" : "summa"}
         onClick={() => setSumma(20)}

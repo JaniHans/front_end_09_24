@@ -4,6 +4,8 @@ import kliendidFailist from "../data/companies.json"
 function Kliendid() {
 
     const [kliendid, lisaKliendid] = useState(kliendidFailist);
+    const [emailid, lisaEmailid] = useState([]);
+
 
     const Reset = () => {
         lisaKliendid(kliendidFailist);
@@ -50,13 +52,18 @@ function Kliendid() {
     
     const onlyEmailsArray = () => {
         const vastus = kliendid.map(user => user.email);
-        lisaKliendid(vastus);
+        lisaEmailid(vastus)
         console.log(vastus);
     }
 
 
     
     const replaceCatchPhrase = () => {
+
+        // spread operator j2tab k6ik varasemad alles
+        // .map filtreerimisel ei saa teha kui v6ti ja v22rtusega seotud arrayd olemas
+        // muuta ja kuvadada saab
+
         const vastus = kliendid.map(user => (
         {...user, company: {...user.company, catchPhrase: user.company.catchPhrase.replaceAll("a", "e")}}
 
@@ -69,6 +76,10 @@ function Kliendid() {
 
   return (
     <div>
+
+        <div>{emailid.map(email => 
+            <div>{email}</div>
+        )}</div>
         <div>{kliendid.length}</div>
         <br />
         <button onClick={Reset}>Reset</button>

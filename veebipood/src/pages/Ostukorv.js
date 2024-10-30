@@ -37,6 +37,7 @@ function Ostukorv() {
 
   return (
     <div>
+      <div>{arvutaKokku()}</div>
       {tooted.length > 0 && <button onClick={tyhjenda}>Tühjenda</button>} 
       {/* // kui tooted.length on suurem kui 0 SIIS teeme buttonist edasi liigutuse */}
       {tooted.map((toode, index) => 
@@ -46,14 +47,12 @@ function Ostukorv() {
       <div>{toode.hind}€</div>
         <button onClick={() =>kustuta(index)}>x</button>
         </div>)}
-      <div>Ostukorvi kogusumma: {arvutaKokku()}€</div>
-      {tooted.length === 0 && 
-      <>
+        
       <div>Ostukorv on tühi</div>
       <Link to="/osta-kinkekaart">
       <button>Mine lisa kinkekaart</button>
       </Link>
-      </>}
+      
      </div>
   )
 }

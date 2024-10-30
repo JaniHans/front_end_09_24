@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import {  Route, Routes } from "react-router-dom";
-import Avaleht from './pages/Avaleht';
+import Map from './components/Map';
 import Ostukorv from './pages/Ostukorv';
 import Kinkekaart from './pages/Kinkekaart';
 import Seaded from './pages/Seaded';
@@ -27,20 +27,9 @@ import YksEsindus from './pages/yks/YksEsindus';
 import YksHind from './pages/yks/YksHind';
 import YksToode from './pages/yks/YksToode';
 import YksTootaja from './pages/yks/YksTootaja';
-// kahte tüüpi errorid:
-// run-time error 
-// leht läheb üleni valgeks
-// viga leiab dev tools inspect - console
+import AdminHome from './pages/AdminHome';
 
 
-// 2. compile - time error
-// on näha ka konsoolis (seal kus on tehtud "npm start")
-// punane joon all + tekst mis on viga
-  // const cars = ["Saab", "Volvo", "BWM"];
-
-  // let x = cars[1];
-
-  // const leitud = esindusedJSON[jrknr]
 
 function App() {
   return (
@@ -51,7 +40,7 @@ function App() {
 
 {/* localhost:3000/osta-kinkekaart ---> <div>Kinkkeaardid</div> */}      
       <Routes>
-        <Route path="/" element={ <Avaleht/> }/>
+        <Route path="/" element={ <Tooted/> }/>
         <Route path="/ostukorv" element={ <Ostukorv/>}/> 
         <Route path="/osta-kinkekaart" element={ <Kinkekaart/>}/> 
         <Route path="seaded" element={ <Seaded/>}/> 
@@ -85,6 +74,8 @@ function App() {
         <Route path="toode/:t" element= { <YksToode/>} />
         <Route path="tootaja:j" element= { <YksTootaja/>} />
 
+        <Route path="admin" element= { <AdminHome/>} />
+        <Route path="shops" element= { <Map/>} />
      
 
       </Routes>

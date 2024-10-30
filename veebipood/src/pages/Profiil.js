@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 function Profiil() {
+    const { t } = useTranslation();
     const [ aadress, setAadress] = useState();
     const [ email, setEmail] = useState();
     const [ telefon, setTelefon] = useState();
@@ -16,7 +18,7 @@ const sisestaAadress = () => {
     // Tammsaare tee "T" === "t"
     //
     if (aadressRef.current.value === "") {
-        toast.error("Aadressi pead sisestama!");
+        toast.error(t("address-empty"));
         return;
     }
     if (aadressRef.current.value[0] === aadressRef.current.value[0].toLowerCase()) {
