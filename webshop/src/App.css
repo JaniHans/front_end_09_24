@@ -2,37 +2,75 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.App-dark {
+  text-align: center;
+  background-color: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-dark .navbar {
+  --bs-navbar-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-dark .bg-body-tertiary {
+  background-color: black !important;
 }
+
+.App-dark .navbar-toggler-icon {
+  border-color: white;
+}
+
+.App-dark .navbar-brand {
+  color: white;
+}
+
+.App-dark .nav-link {
+  --bs-nav-link-hover-color: rgb(137, 137, 137);
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
+.icon:hover { 
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.icon:active {
+  padding: 1px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin: 3%;
+}
+
+
+.product {
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  transition: 1s;
+}
+
+.product:hover  .image { 
+  transform: scale(105%);
+  transition: 1s;
+}
+
+.title {
+  height: 90px;
+}
+
+.price {
+font-weight: bold;
+}
+

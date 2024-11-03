@@ -30,7 +30,6 @@ import YksTootaja from './pages/yks/YksTootaja';
 import AdminHome from './pages/AdminHome';
 
 
-
 function App() {
   return (
     <div className="App">

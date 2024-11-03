@@ -9,6 +9,13 @@ function NavigationBar() {
 
   const {t, i18n } = useTranslation();
 
+  const changeLang = (newLang) => {
+    i18n.changeLanguage(newLang);
+    // Brauseri 
+    // V6ti vasakul, v22rtus paremal ---> "ee", "eng" "it", "fr"
+    localStorage.setItem("language", newLang);
+  }
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -31,10 +38,11 @@ function NavigationBar() {
             </NavDropdown>
           </Nav>
           <Nav>
-          <button onClick={() => i18n.changeLanguage("en")}>EN</button>
-          <button onClick={() => i18n.changeLanguage("ee")}>EE</button>
-          <button onClick={() => i18n.changeLanguage("it")}>IT</button>
-          <button onClick={() => i18n.changeLanguage("fr")}>FR</button>
+            <img onClick={() => changeLang("en")} className="icon" src="/i18n/uk.png" alt=""/>
+            <img onClick={() => changeLang("ee")} className="icon" src="/i18n/es.png" alt=""/>
+            <img onClick={() => changeLang("it")} className="icon" src="/i18n/it.png" alt=""/>
+            <img onClick={() => changeLang("fr")} className="icon" src="/i18n/fr.png" alt=""/>
+       
             <Nav.Link as={Link} to="/login">{t("login")}</Nav.Link>
             <Nav.Link as={Link} to="/signup">{t("register")}</Nav.Link>
           </Nav>

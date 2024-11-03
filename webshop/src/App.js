@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 import { Routes, Route} from 'react-router-dom'
 import './App.css';
 import HomePage from './pages/global/HomePage';
@@ -18,7 +18,6 @@ import NotFound from './pages/global/NotFound';
 import NavigationBar from './components/NavigationBar';
 
 
-
   // Eng poes ka:
   //Bootstrap          npm i bootstrap
   // Emaili saatmine    npm i @emailjs
@@ -29,15 +28,29 @@ import NavigationBar from './components/NavigationBar';
 
 
 function App() {
-return (
+
+  const [darkMode, setDarkMode] = useState(localStorage.getItem("theme"));
+
+  const modeToDark = () => {
+    setDarkMode("true");
+    localStorage.setItem("theme", "true");
+  }
+
+  
+  const modeToLight = () => {
+    setDarkMode("false")
+    localStorage.setItem("theme", "false");
+  }
 
 
-    <div className='App'>
+  return (
 
- 
-  <NavigationBar/>
-   
-    
+
+  <div className={darkMode === "true" ? "App-dark" : "App"}>
+    <NavigationBar/>
+   {darkMode === "false" && <img  className="icon" onClick={modeToDark} src="/theme/dark.png" alt=''/>}
+    {darkMode === "true" && <img className="icon" onClick={modeToLight}  src="/theme/light.png" alt=''/>}
+
     <Routes>
       <Route path='' element={<HomePage />}></Route>
       <Route path='contact' element={<ContactUs />}></Route>
@@ -58,7 +71,8 @@ return (
       <Route path='*' element={<NotFound />}></Route>
 
 
-    </Routes>
+      </Routes>
+      {/* <div>Footer</div> */}
     </div>
   );
 }

@@ -1,21 +1,23 @@
 import { Link } from 'react-router-dom'
 import React, {useState} from 'react'
-import cartFile from "../../data/cart.json"
+// import cartFile from "../../data/cart.json"
 import { useTranslation } from 'react-i18next'
 //OSTUKORV TEHA
 
 function Cart() {
     const { t } = useTranslation()
-    const [products, setProducts] = useState(cartFile)
- 
+    const [products, setProducts] = useState(JSON.parse(localStorage.getItem("cart")) || [])
+    
     const emptyCart = () => {
-        cartFile.splice(0);
-        setProducts(cartFile.slice());
+        products.splice(0);
+        setProducts(products.slice());
+        localStorage.setItem("cart", JSON.stringify(products))
     }
 
     const deleteItems = (index) => {
-        cartFile.splice(index, 1);
-        setProducts(cartFile.slice());
+        products.splice(index, 1);
+        setProducts(products.slice());
+        localStorage.setItem("cart", JSON.stringify(products))
     }
 
     const calculateSum = () => {
@@ -23,7 +25,9 @@ function Cart() {
         products.forEach(element => {
             sum += element.price;
         });
-        return sum;
+        return sum.toFixed(2);
+
+        // OR math round investigate
     }
 
     return (
@@ -34,7 +38,7 @@ function Cart() {
         <div>
             <img style={{width: "100px"}} src={product.image} alt="not found"/>
             <div>{product.title}</div>
-            <div>{product.price}€</div>
+            <div>{product.price.toFixed(2)}€</div>
             <button onClick={() =>deleteItems(index)}>X</button>
     </div>)}
 
