@@ -20,40 +20,44 @@ function Tooted() {
   }
 
   const sortreeridaAZ = () => {
-    margid.sort();
+    margid.sort((a, b) => a.nimi.localeCompare(b.nimi));
     // margid.sort((a, b) => a.localeCompare(b))
     autoMargid(margid.slice());
   }
 
   const sortreeridaZA = () => {
-    margid.sort((a, b) => b.localeCompare(a));
-    //margid.sort()
-    //margid.reverse()
-    autoMargid(margid.slice());
+    try {
+      console.log("Sorteerimisel kasutatavad andmed:", margid); // Debug
+      const sorteeritud = margid.slice().sort((a, b) => b.nimi.localeCompare(a.nimi));
+      autoMargid(sorteeritud);
+    } catch (error) {
+      console.error("Sorteerimisel tekkis viga:", error);
+      console.log("Probleemsed andmed:", margid);
+    }
   }
 
   const sortreeridatahedKasvavalt = () => {
-    margid.sort((a, b) => a.length - b.length);
+    margid.sort((a, b) => a.nimi.length - b.nimi.length);
     autoMargid(margid.slice());
   }
 
   const sortreeridatahedKahanevalt = () => {
-    margid.sort((a, b) => b.length - a.length);
+    margid.sort((a, b) => b.nimi.length - a.nimi.length);
     autoMargid(margid.slice());
   }
 
   const sortreeridaAZ2 = () => {
-    margid.sort((a, b) => a[1].localeCompare(b[1]));
+    margid.sort((a, b) => a.nimi[1].localeCompare(b.nimi[1]));
     autoMargid(margid.slice());
   }
 
   const filterFirstA = () => {
-    const vastus = tootedFailist.filter( mark => mark[0] === "A");
+    const vastus = tootedFailist.filter( mark => mark.nimi[0] === "A");
     autoMargid(vastus);
   }
 
   const filterN = () => {
-    const vastus = tootedFailist.filter(mark => mark[0] === "N");
+    const vastus = tootedFailist.filter(mark => mark.nimi[0] === "N");
     autoMargid(vastus)
   }
 
@@ -63,17 +67,17 @@ function Tooted() {
   }
 
   const filterT = () => {
-    const vastus = tootedFailist.filter(mark => mark[0] === "T");
+    const vastus = tootedFailist.filter(mark => mark.nimi[0] === "T");
     autoMargid(vastus);
   }
 
   const filterThirdS = () => {
-    const vastus = tootedFailist.filter(mark => mark[2] === "s");
+    const vastus = tootedFailist.filter(mark => mark.nimi[2] === "s"); 
     autoMargid(vastus);
   }
 
   const filterAtLeast5Letters = () => {
-    const vastus = tootedFailist.filter(mark => mark.length >= 5);
+    const vastus = tootedFailist.filter(mark => mark.nimi.length >= 5);
     autoMargid(vastus);
   }
 

@@ -16,6 +16,11 @@ import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import NotFound from './pages/global/NotFound';
 import NavigationBar from './components/NavigationBar';
+import Supplier from './pages/admin/Supplier';
+import SupplierEscuela from './pages/admin/SupplierEscuela';
+import SupplierRiver from './pages/admin/SupplierRiver';
+import SupplierDetail from './pages/admin/SupplierDetail';
+import SupplierEscuelaDetail from './pages/admin/SupplierEscuelaDetail';
 
 
   // Eng poes ka:
@@ -64,6 +69,11 @@ function App() {
       <Route path='admin/maintain-products' element={<MaintainProducts />}></Route>
       <Route path='admin/maintain-categories' element={<MaintainCategories />}></Route>
       <Route path='admin/maintain-shops' element={<MaintainShops />}></Route>
+      <Route path='admin/supplier' element={<Supplier />}></Route>
+      <Route path='admin/supplier-escuela' element={<SupplierEscuela />}></Route>
+      <Route path='admin/supplier-rivers' element={<SupplierRiver />}></Route>
+      <Route path='admin/supplier-detail/:id' element={<SupplierDetail />}></Route>
+      <Route path='admin/escuela-detail/:id' element={<SupplierEscuelaDetail />}></Route>
 
       <Route path='login' element={<Login />}></Route>
       <Route path='signup' element={<Signup />}></Route>

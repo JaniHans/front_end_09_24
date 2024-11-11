@@ -3,12 +3,24 @@ import { useState, useRef } from 'react';
 function LisaTegelane() {
     const [sonum, uuendaSonum] = useState("");
     const nimiRef = useRef();
+    const eesnimiRef = useRef();
+    const perenimiRef = useRef();
+    const elukohtRef = useRef();
+    const vanusRef = useRef();
 
     const lisaUusTegelane = () => {
         if (nimiRef.current.value === "") {
             uuendaSonum("Tühja nimega ei saa sisestada");
         } else {
             uuendaSonum("Tegelane lisatud");
+            const tegelased = JSON.parse(localStorage.getItem("tegelased")) || [];
+            tegelased.push({
+                "eesnimi": eesnimiRef.current.value,
+                "perenimi": perenimiRef.current.value,
+                "elukoht": elukohtRef.current.value,
+                "vanus": Number(vanusRef.current.value)
+            })
+            localStorage.setItem("tegelased", JSON.stringify(tegelased));
         }
     }
  
@@ -17,7 +29,13 @@ function LisaTegelane() {
     <div>
         <div>{sonum}</div>
         <label>Tegelase nimi</label><br />
-        <input ref={nimiRef}/> <br />
+        <input ref={eesnimiRef} type='text'/><br />
+        <label>Tegelase perenimi</label><br />
+        <input ref={perenimiRef}  type='text'/> <br />
+        <label>Tegelase elukoht</label><br />
+        <input ref={elukohtRef} type='text'/><br />
+        <label>Tegelase vanus</label><br />
+        <input ref={vanusRef} type='number'/><br />
         <button onClick={lisaUusTegelane}>Lisa uus</button><br />
 
     </div> )
