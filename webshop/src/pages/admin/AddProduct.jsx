@@ -4,7 +4,7 @@ import productsFile from "../../data/products.json"
 
 function AddProduct() {
  const [product, setProduct] = useState(productsFile.slice());
- const [message, addMessage] = useState("Product added!")
+ const [message, addMessage] = useState()
 
 
   
@@ -18,6 +18,29 @@ function AddProduct() {
   const countRef = useRef();
 
   const addProducts = () => {
+    if (idRef.current.value !== "") {
+      addMessage("Product ID is required")
+    }
+    if (nameRef.current.value !== "") {
+      addMessage("Product Title is required")
+    }
+    if (priceRef.current.value !== Number) {
+      addMessage("Product Price is required")
+    }
+    if (descriptionRef.current.value !== "") {
+      addMessage("Product Description is required")
+    }
+    if (imageRef.current.value !== "") {
+      addMessage("Product Image is required")
+    }
+    if (categoryRef.current.value !== "") {
+      addMessage("Product Category is required")
+    }
+    if (ratingRef.current.value !== Number) {
+    }
+    if (countRef.current.value !== Number) {
+      addMessage("Product Count is required")
+    }
     productsFile.push({ 
       id: idRef.current.value,
       title: nameRef.current.value,
