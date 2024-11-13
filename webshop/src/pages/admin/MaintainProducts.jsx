@@ -2,6 +2,8 @@ import React, {useRef} from 'react'
 import { useState } from 'react'
 import productsFile from "../../data/products.json"
 import {Toaster, toast} from 'react-hot-toast';
+import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 function MaintainProducts() {
   const [products, setProducts] = useState(productsFile);
@@ -24,6 +26,7 @@ function MaintainProducts() {
 
   return (
     <div>
+      <Button as ={Link} to="/admin/add-product">Add Products</Button>{" "} <br /> <br/>
       <label>Search by title</label>
       <input ref={searchInput} type="text"></input>
       <button onClick={searchByTitle}>Search</button>
