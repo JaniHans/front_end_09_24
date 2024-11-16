@@ -15,7 +15,9 @@ function AdminHome() {
       <Button as ={Link} to="/admin/supplier-escuela">Supplier-Escuela</Button>{" "}
       <Button as ={Link} to="/admin/supplier-rivers">Rivers</Button>{" "}
       <Button as ={Link} to="/admin/maintain-products">Maintain Products</Button>{" "}
-      
+      <Button as ={Link} to="/electricity">Electricity</Button>{" "}
+      <Button as ={Link} to="/admin/maintain-categories">Maintain Categories</Button>{" "}
+      <Button as ={Link} to="/admin/add-product">Add Product</Button>{" "}
     </div>
   )
 }

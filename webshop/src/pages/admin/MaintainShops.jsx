@@ -2,7 +2,8 @@ import React from 'react'
 
 function MaintainShops() {
   return (
-    <div>MaintainShops</div>
+    <div>
+    </div>
   )
 }
 

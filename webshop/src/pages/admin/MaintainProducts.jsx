@@ -10,18 +10,21 @@ function MaintainProducts() {
   const searchInput = useRef();
 
   const deleteProduct = (id) => {
-    setProducts(products.filter(product => product.id !== id));
+    setProducts(productsFile.filter(product => product.id !== id));
     toast.error("Product deleted successfully");
   }
 
   const searchByTitle = () => {
-    setProducts(products.filter(product => product.title.toLowerCase().includes(searchInput.current.value.toLowerCase())));
+    setProducts(productsFile.filter(product => product.title.toLowerCase().includes(searchInput.current.value.toLowerCase())));
   }
 
   const resetSearch = () => {
     setProducts(productsFile);
   }
 
+  const editProduct = () => {
+//TODO
+  }
 
 
   return (
@@ -46,7 +49,7 @@ function MaintainProducts() {
         </thead>
         <tbody>
           {products.map(product => (
-            <tr key={product.id}>
+            <tr key={product.id} className={product.active ? "active" : "inactive"}> 
               <td>{product.id}</td>
               <td><img src={product.image} alt={product.title} style={{width: "50px"}}/></td>
               <td>{product.title}</td>
@@ -55,7 +58,7 @@ function MaintainProducts() {
               <td>
 
                 <button onClick={() => deleteProduct(product.id)}>Kustuta</button>
-                <button>Muuda</button>
+                <button onClick={editProduct}>Muuda</button>
 
 
               </td>

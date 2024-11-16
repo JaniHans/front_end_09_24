@@ -1,0 +1,11 @@
+.name {
+    font-weight: bold;
+}
+
+.active {
+    background-color: red!important;
+}
+
+.inactive {
+    background-color: green!important;
+}

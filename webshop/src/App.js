@@ -21,6 +21,7 @@ import SupplierEscuela from './pages/admin/SupplierEscuela';
 import SupplierRiver from './pages/admin/SupplierRiver';
 import SupplierDetail from './pages/admin/SupplierDetail';
 import SupplierEscuelaDetail from './pages/admin/SupplierEscuelaDetail';
+import Electricity from './pages/admin/Electricity';
 
 
   // Eng poes ka:
@@ -29,7 +30,7 @@ import SupplierEscuelaDetail from './pages/admin/SupplierEscuelaDetail';
   // Kaardirakendus     npm i react-leaflet leaflet --> lisa mõned poed teise linna
   // T6lge                npm i react-i18next i18next --> lisa kolmas ja neljas keel
   // Kata k6ik t6lgetega webshop
-  //
+  // 13.11 
 
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
       <Route path='admin/supplier-rivers' element={<SupplierRiver />}></Route>
       <Route path='admin/supplier-detail/:id' element={<SupplierDetail />}></Route>
       <Route path='admin/escuela-detail/:id' element={<SupplierEscuelaDetail />}></Route>
+      <Route path='electricity' element={<Electricity />}></Route>
 
       <Route path='login' element={<Login />}></Route>
       <Route path='signup' element={<Signup />}></Route>

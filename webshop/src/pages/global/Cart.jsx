@@ -2,12 +2,13 @@ import { Link } from 'react-router-dom'
 import React, {useState} from 'react'
 // import cartFile from "../../data/cart.json"
 import { useTranslation } from 'react-i18next'
+import ParcelMachines from '../../components/ParcelMachines'
 //OSTUKORV TEHA
 
 function Cart() {
     const { t } = useTranslation()
     const [products, setProducts] = useState(JSON.parse(localStorage.getItem("cart")) || [])
-    
+
     const emptyCart = () => {
         products.splice(0);
         setProducts(products.slice());
@@ -47,7 +48,7 @@ function Cart() {
         
     }
 
-  
+
     const calculateProducts = () => {
         let sum = 0
         products.forEach(element => {
@@ -83,6 +84,7 @@ function Cart() {
             <Link to="/">
             <button>{t("back")}</button>
             </Link>
+            <ParcelMachines />
 
         </div>
   

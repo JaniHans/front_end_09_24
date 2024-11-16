@@ -18,28 +18,33 @@ function AddProduct() {
   const countRef = useRef();
 
   const addProducts = () => {
-    if (idRef.current.value !== "") {
-      addMessage("Product ID is required")
+    if (idRef.current.value === "") {
+      addMessage("Product ID is required");
+      return; // katkestab funktsiooni edasimineku
     }
-    if (nameRef.current.value !== "") {
+    if (nameRef.current.value === "") {
       addMessage("Product Title is required")
     }
-    if (priceRef.current.value !== Number) {
-      addMessage("Product Price is required")
+    if (priceRef.current.value === "") {
+      addMessage("Product Price is required");
+      return;
     }
-    if (descriptionRef.current.value !== "") {
-      addMessage("Product Description is required")
+    if (descriptionRef.current.value === "") {
+      addMessage("Product Description is required");
+      return;
     }
-    if (imageRef.current.value !== "") {
-      addMessage("Product Image is required")
+    if (imageRef.current.value.startsWith("http://") === false) {
+      addMessage("Product Image is required");
+      return;
     }
-    if (categoryRef.current.value !== "") {
-      addMessage("Product Category is required")
+    if (categoryRef.current.value === "") {
+      addMessage("Product Category is required");
+      return;
     }
-    if (ratingRef.current.value !== Number) {
-    }
-    if (countRef.current.value !== Number) {
+  
+    if (countRef.current.value === "") {
       addMessage("Product Count is required")
+      return;
     }
     productsFile.push({ 
       id: idRef.current.value,

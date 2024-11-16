@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "webshop-4ab14-2be1b",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
