@@ -22,9 +22,7 @@ function MaintainProducts() {
     setProducts(productsFile);
   }
 
-  const editProduct = () => {
-//TODO
-  }
+
 
 
   return (
@@ -48,7 +46,7 @@ function MaintainProducts() {
           </tr>
         </thead>
         <tbody>
-          {products.map(product => (
+          {products.map((product, index) => (
             <tr key={product.id} className={product.active ? "active" : "inactive"}> 
               <td>{product.id}</td>
               <td><img src={product.image} alt={product.title} style={{width: "50px"}}/></td>
@@ -58,8 +56,10 @@ function MaintainProducts() {
               <td>
 
                 <button onClick={() => deleteProduct(product.id)}>Kustuta</button>
-                <button onClick={editProduct}>Muuda</button>
-
+               
+               <Link to={"/admin/edit-product/" + index }>
+                <button>CHANGE</button>
+                </Link>
 
               </td>
               <td>{product.rating.rate}</td>

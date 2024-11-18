@@ -29,8 +29,8 @@ import Electricity from './pages/admin/Electricity';
   // Emaili saatmine    npm i @emailjs
   // Kaardirakendus     npm i react-leaflet leaflet --> lisa mõned poed teise linna
   // T6lge                npm i react-i18next i18next --> lisa kolmas ja neljas keel
-  // Kata k6ik t6lgetega webshop
-  // 13.11 
+  // 
+  // Edit Maintainproducts, Firebase 30>10, Maintain shops nagu Maintain Categories , SI
 
 
 function App() {
@@ -62,11 +62,16 @@ function App() {
       <Route path='contact' element={<ContactUs />}></Route>
       <Route path='shops' element={<Shops />}></Route>
       <Route path='cart' element={<Cart />}></Route>
-      <Route path='product/:index' element={<SingleProduct />}></Route>
-
+      <Route path='product/:t' element={<SingleProduct />}></Route>
+      {/*  1)eelnevalt saadame + index vt lähemalt  homepages 
+      2) APP.js lisame indexi tähise
+      3) useParams Singeproduct võtame tähise
+      4) saadame tähisega productsfile importi
+      5) kasutame html tähist et objektile ligi pääseda
+      */}
       <Route path='admin' element={<AdminHome />}></Route>
       <Route path='admin/add-product' element={<AddProduct />}></Route>
-      <Route path='admin/edit-product/:index' element={<EditProduct />}></Route>
+      <Route path='admin/edit-product/:qwerty' element={<EditProduct />}></Route>
       <Route path='admin/maintain-products' element={<MaintainProducts />}></Route>
       <Route path='admin/maintain-categories' element={<MaintainCategories />}></Route>
       <Route path='admin/maintain-shops' element={<MaintainShops />}></Route>
