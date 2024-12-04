@@ -1,6 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useRef , useContext} from 'react'
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
+import { AuthContext } from '../../store/AuthContent';
 
 function Login() {
 
@@ -8,12 +9,17 @@ function Login() {
 
   const kasutajanimiRef = useRef(); 
   const paroolRef = useRef();
+  const {setLoggedIn} = useContext(AuthContext);
+
 
   const sisseLogimine = () => {
       if (kasutajanimiRef.current.value.startsWith("a") === false) {
       toast.error(t("wrong-password"));
+
       return
       }
+      setLoggedIn(true);
+      sessionStorage.setItem("token", "suvaline-token-mida-tegelikult-väljastab-back-end")
   }
 
 

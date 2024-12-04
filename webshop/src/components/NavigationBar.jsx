@@ -1,12 +1,16 @@
+import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+
 import { useTranslation } from 'react-i18next';
 import {Link} from 'react-router-dom';
+import { CartSumContext } from '../store/CartSumContext';
+import { AuthContext } from '../store/AuthContent';
 
 function NavigationBar() {
-
+  const {cartSum} = useContext(CartSumContext);
+  const {loggedIn, setLoggedIn} = useContext(AuthContext)
   const {t, i18n } = useTranslation();
 
   const changeLang = (newLang) => {
@@ -14,6 +18,11 @@ function NavigationBar() {
     // Brauseri 
     // V6ti vasakul, v22rtus paremal ---> "ee", "eng" "it", "fr"
     localStorage.setItem("language", newLang);
+  }
+
+  const logout = () => {
+    setLoggedIn(false)
+    sessionStorage.removeItem("token");
   }
 
   return (
@@ -25,27 +34,24 @@ function NavigationBar() {
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/cart">{t("cart")}</Nav.Link>
             <Nav.Link as={Link} to="/shops">{t("findshops")}</Nav.Link>
-            <Nav.Link as={Link} to="/admin/">Admin</Nav.Link>
-            <NavDropdown title={t("dropdown")} id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            {loggedIn && <Nav.Link as={Link} to="/admin/">Admin</Nav.Link>}
           </Nav>
           <Nav>
-            <img onClick={() => changeLang("en")} className="icon" src="/i18n/uk.png" alt=""/>
-            <img onClick={() => changeLang("ee")} className="icon" src="/i18n/es.png" alt=""/>
-            <img onClick={() => changeLang("it")} className="icon" src="/i18n/it.png" alt=""/>
-            <img onClick={() => changeLang("fr")} className="icon" src="/i18n/fr.png" alt=""/>
+            {cartSum}€
+            <img onClick={() => changeLang("en")} className="icon" src="/uk.png" alt=""/>
+            <img onClick={() => changeLang("ee")} className="icon" src="/es.png" alt=""/>
+            <img onClick={() => changeLang("it")} className="icon" src="/it.png" alt=""/>
+            <img onClick={() => changeLang("fr")} className="icon" src="/fr.png" alt=""/>
        
+           { loggedIn === false ?
+            
+            <>
             <Nav.Link as={Link} to="/login">{t("login")}</Nav.Link>
             <Nav.Link as={Link} to="/signup">{t("register")}</Nav.Link>
+            </> :
+            <Nav.Link onClick={logout}> Logout</Nav.Link>
+            
+            }
           </Nav>
         </Navbar.Collapse>
       </Container>

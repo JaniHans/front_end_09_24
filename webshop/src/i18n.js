@@ -1,9 +1,10 @@
 import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import enJSON from "../src/i18n/en.json";
-import eeJSON from "../src/i18n/ee.json";
-import itJSON from '../src/i18n/it.json';
-import frJSON from '../src/i18n/fr.json';
+import { initReactI18next } from 'react-i18next';
+
+import enJSON from "./i18n/en.json";
+import eeJSON from "./i18n/ee.json";
+import itJSON from './i18n/it.json';
+import frJSON from './i18n/fr.json';
 
 
 // the translations

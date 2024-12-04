@@ -7,8 +7,6 @@ function EditProduct() {
   const {qwerty } = useParams()
   const leitud = productsFile[qwerty]
 
- 
-
   const idRef = useRef();
   const titleRef = useRef();
   const priceRef = useRef();
@@ -51,7 +49,10 @@ function EditProduct() {
       <label>Description</label>
       <input ref={descriptionRef} defaultValue={leitud.description}></input>
       <label>Category</label>
+      <select>
+        {/* TODO t2pselt nagu addproductis l2bi dropdowni valikvariandid */}
       <input ref={categoryRef} defaultValue={leitud.category}></input>
+      </select>
       <label>Image</label>
       <input ref={imageRef} defaultValue={leitud.image}></input>
       <label>Rating</label>

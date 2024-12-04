@@ -54,8 +54,8 @@ function App() {
 
   <div className={darkMode === "true" ? "App-dark" : "App"}>
     <NavigationBar/>
-   {darkMode === "false" && <img  className="icon" onClick={modeToDark} src="/theme/dark.png" alt=''/>}
-    {darkMode === "true" && <img className="icon" onClick={modeToLight}  src="/theme/light.png" alt=''/>}
+   {darkMode === "false" && <img  className="icon" onClick={modeToDark} src='/dark.png' alt='not found'/>}
+    {darkMode === "true" && <img className="icon" onClick={modeToLight}  src='/light.png' alt='not found'/>}
 
     <Routes>
       <Route path='' element={<HomePage />}></Route>

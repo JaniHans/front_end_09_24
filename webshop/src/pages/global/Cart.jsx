@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 // import cartFile from "../../data/cart.json"
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 import ParcelMachines from '../../components/ParcelMachines'
-//OSTUKORV TEHA
+import Payment from '../../components/Payment'
+import { CartSumContext } from '../../store/CartSumContext'
+
 
 function Cart() {
+    const {setCartSum} = useContext(CartSumContext);
     const { t } = useTranslation()
     const [products, setProducts] = useState(JSON.parse(localStorage.getItem("cart")) || [])
 
@@ -13,12 +16,14 @@ function Cart() {
         products.splice(0);
         setProducts(products.slice());
         localStorage.setItem("cart", JSON.stringify(products))
+        setCartSum(calculateSum());
     }
 
     const deleteItem = (index) => {
         products.splice(index, 1); // mitmendat , teine number mitu tk kustutame
         setProducts(products.slice());
         localStorage.setItem("cart", JSON.stringify(products))
+        setCartSum(calculateSum());
     }
 
     const calculateSum = () => {
@@ -39,12 +44,14 @@ function Cart() {
         }
         setProducts(products.slice())
         localStorage.setItem("cart", JSON.stringify(products));
+        setCartSum(calculateSum());
     }
 
     const increaseQuantity = (index) =>  {
         products[index].kogus++;
         setProducts(products.slice())
         localStorage.setItem("cart", JSON.stringify(products));
+        setCartSum(calculateSum());
         
     }
 
@@ -66,18 +73,20 @@ function Cart() {
         <div>Total Products: {calculateProducts()} pcs</div>
         {products.length > 0 && <button onClick={emptyCart}>{t("empty")}</button>}
         {products.map((product, index) =>
-        <div key={product.toode.id}>
-            <img style={{width: "100px"}} src={product.image} alt="not found"/>
-            <div>{product.toode.title}</div>
-            <div>{product.toode.price.toFixed(2)}€</div>
-            <button onClick={() => decreaseQuantity(index)}>-</button>
+        <div className='cart-product' key={product.toode.id}>
+            <img className='cart-image' src={product.toode.image} alt="not found"/>
+            <div className='cart-title'>{product.toode.title}</div>
+            <div className='cart-price'>{product.toode.price.toFixed(2)}€</div>
+            <button className='icon' onClick={() => decreaseQuantity(index)}>-</button>
         
-            <div>{product.kogus} tk</div>
-            <button onClick={() => increaseQuantity(index)}>+</button>
+            <div className='cart-quantity'>{product.kogus} tk</div>
+            <button className='icon' onClick={() => increaseQuantity(index)}>+</button>
 
-            <div>{product.kogus * product.toode.price}</div>
-            <button onClick={() => deleteItem(index)}>X</button>
+            <div className='cart-total'>{product.kogus * product.toode.price}</div>
+            <button className='icon' onClick={() => deleteItem(index)}>X</button>
     </div>)}
+    
+    <Payment sum={calculateSum()}/>
 
     <div>{t("cart-is-empty")}</div>
 

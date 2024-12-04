@@ -1,15 +1,31 @@
-import React , {useState} from 'react'
+import React , {useState, useEffect, useContext} from 'react'
 import productsFile from "../../data/products.json"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import cartFile from "../../data/cart.json"
 import { useTranslation } from 'react-i18next';
 import {Link} from 'react-router-dom';
+import SortButtons from '../../components/SortButtons';
+import { CartSumContext } from '../../store/CartSumContext';
+import Button from '@mui/material/Button';
+
+
 
 function HomePage() {
-    const [products, setProducts] = useState(productsFile.slice());
+  
+    const {cartSum, setCartSum} = useContext(CartSumContext);
+    const [products, setProducts] = useState([]);
     const { t } = useTranslation();
     // const [showCategories, setShowCategories] = useState(false);
+  
+    const url = 'https://webshop-6ba05-default-rtdb.europe-west1.firebasedatabase.app/products.json'
+
+
+    useEffect(() => {
+      fetch(url)
+      .then(res => res.json())
+      .then(json => setProducts(json || []));
+    }, []);
 
     const reset = () => {
       setProducts(productsFile);
@@ -35,37 +51,18 @@ function HomePage() {
 
       localStorage.setItem("cart", JSON.stringify(cartLS));
       toast.success(t("product-added-message"));
+      // liidab juurde olemasolevale summale lisatud toote hinna
+      // olemasolev summa ---> cartSum
+      // lisatud tootehind --> product.price
+      // mure: cartsum konverteeriti stringiks, kuna taheti n2idata kahte komakohta
+      // .toFixed(2) abil
+      // lahendus tuleb konverteerida tagasi numbriks
+      // panen l6puks uuesti .toFixed(2), et teha uuesti nii, et oleks 2 komakohta
+      setCartSum((Number(cartSum) + product.price).toFixed(2));
+      // setCartSum(cartSum + product.price); ilma kohakohtade peale m6tlemata
     }
 
-const sortAZ = () => {
-  products.sort((a, b) => a.title.localeCompare(b.title))
-  setProducts(products.slice());
-}
 
-const sortZA = () => {
-  products.sort((a, b) => b.title.localeCompare(a.title))
-  setProducts(products.slice());
-}
-
-const sortLowToHigh = () => {
-  products.sort((a, b) => a.price - b.price)
-  setProducts(products.slice());
-}
-
-const sortHighToLow = () => {
-  products.sort((a, b) => b.price - a.price)
-  setProducts(products.slice());
-}
-
-const sortRatingHighToLow = () => {
-  products.sort((a, b) => b.rating.rate - a.rating.rate)
-  setProducts(products.slice());
-}
-
-const sortRatingLowToHigh = () => {
-  products.sort((a, b) => a.rating.rate - b.rating.rate)
-  setProducts(products.slice());
-}
 
 const filterByCategory = (category) => {
   const filteredProducts = products.filter(product => product.category === category)
@@ -81,24 +78,25 @@ const filterByCategory = (category) => {
 //   const filteredProducts = products.filter(product => product.category === category)
 //   setProducts(filteredProducts)
 // } 
+
+  if (products.length === 0) {
+    return <div>Loading...</div>
+  }
+
   return (
     <div>
+      <div>{products.length}</div>
            <ToastContainer 
             position="bottom-right"
             autoClose={4000}
             theme="dark"/>
-            <button onClick={reset}>Reset</button><br /><br />
-            <button onClick={sortAZ}>Sort A-Z</button>
-            <button onClick={sortZA}>Sort Z-A</button><br /><br />
-            <button onClick={sortLowToHigh}>Low to High</button>
-            <button onClick={sortHighToLow}>High to Low</button>
-            <button onClick={sortRatingHighToLow}>Rating: High to Low</button>
-            <button onClick={sortRatingLowToHigh}>Rating: Low to High</button><br /><br />
+            <Button variant="outlined" onClick={reset}>Reset</Button><br /><br />
+            <SortButtons products={products} setProducts={setProducts} />
             <label>Filter by Category</label><br />
-            <button onClick={() => filterByCategory("men's clothing")}>Men's Clothing</button>
-            <button onClick={() => filterByCategory("women's clothing")}>Women's clothing</button>
-            <button onClick={() => filterByCategory("jewelery")}>Jewelery</button>
-            <button onClick={() => filterByCategory("electronics")}>Electronics</button>
+            <Button onClick={() => filterByCategory("men's clothing")}>Men's Clothing</Button>
+            <Button onClick={() => filterByCategory("women's clothing")}>Women's clothing</Button>
+            <Button onClick={() => filterByCategory("jewelery")}>Jewelery</Button>
+            <Button onClick={() => filterByCategory("electronics")}>Electronics</Button>
             <div className="category-filter">
         {/*  ADVANCED CURSOR AI <button onClick={() => setShowCategories(!showCategories)}>Filter by Category</button>
         {showCategories && (
@@ -117,14 +115,16 @@ const filterByCategory = (category) => {
         <div className='products'>
         {products.map((product, index) =>
               <div className='product' key={product.id}>
+                <Link to={'product/' + index}>
                 <img className='image' src={product.image} alt="" />
                 <div className='title'>{product.title}</div>
                 <div className='price'>{product.price}€</div><br />
                 <div className='rating'>Rating: {product.rating.rate}</div><br />
-                <button onClick={() => addToCart(product)}>{t("add-product")}</button>
-                <Link to={'product/' + index}>
-                <button>Vt üksikasjad</button>
                 </Link>
+                <Button variant="contained" onClick={() => addToCart(product)}>{t("add-product")}</Button>
+                
+                
+        
               </div>
         )}
         </div>

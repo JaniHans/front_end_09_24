@@ -8,7 +8,7 @@
   color: white;
 }
 
-.App-dark .navbar {
+/* .App-dark .navbar {
   --bs-navbar-color: white;
 }
 
@@ -26,7 +26,7 @@
 
 .App-dark .nav-link {
   --bs-nav-link-hover-color: rgb(137, 137, 137);
-}
+} */
 
 .icon {
   width: 30px;
@@ -82,4 +82,37 @@ border: 1px solid green;
 .inactive {
 background-color: rgb(241, 236, 236);
 border: 1px solid red;
+}
+
+.cart-product {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10%;
+  border-bottom: 1px solid lightgrey;
+  padding: 10px 0;
+}
+
+.cart-image {
+width: 80px;
+height: 80px;
+}
+
+.cart-title {
+width: 150px;
+}
+
+.cart-price {
+  width: 80px;
+}
+
+.cart-button {
+  width: 80px;
+}
+
+.cart-quantity {
+ width: 80px;
+}
+
+.cart-total {
+width: 80px;
 }

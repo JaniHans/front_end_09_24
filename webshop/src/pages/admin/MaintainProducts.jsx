@@ -4,15 +4,33 @@ import productsFile from "../../data/products.json"
 import {Toaster, toast} from 'react-hot-toast';
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react';
 
 function MaintainProducts() {
-  const [products, setProducts] = useState(productsFile);
+  const [products, setProducts] = useState([]);
   const searchInput = useRef();
 
+  const url = 'https://webshop-6ba05-default-rtdb.europe-west1.firebasedatabase.app/products.json'
+
+
+  useEffect(() => {
+    fetch(url)
+    .then(res => res.json())
+    .then(json => setProducts(json || []));
+  }, []);
+
   const deleteProduct = (id) => {
-    setProducts(productsFile.filter(product => product.id !== id));
+    // kustutamine
+    const index = products.findIndex(product => product.id === id);
+    products.splice(index, 1);
+    // setProducts(productsFile.filter(product => product.id !== id));
     toast.error("Product deleted successfully");
-  }
+
+    fetch(url, {method: "PUT", body: JSON.stringify(products)})
+    .then(res => res.json())
+    .then(json => setProducts(json || []));
+  };
+  
 
   const searchByTitle = () => {
     setProducts(productsFile.filter(product => product.title.toLowerCase().includes(searchInput.current.value.toLowerCase())));
@@ -21,11 +39,12 @@ function MaintainProducts() {
   const resetSearch = () => {
     setProducts(productsFile);
   }
+ 
+  if (products.length === 0) {
+    return <div>Loading..</div>
+  }
 
-
-
-
-  return (
+  return  (
     <div>
       <Button as ={Link} to="/admin/add-product">Add Products</Button>{" "} <br /> <br/>
       <label>Search by title</label>

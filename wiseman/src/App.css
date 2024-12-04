@@ -1,0 +1,38 @@
+:root {
+    --primary-font: 'BoosterNextFy', sans-serif;
+    --twn-rootFontSize: 16px;
+    --twn-highlightColor: #14cc76;
+    --twn-textColor: #3a3d57;
+    --twn-alternateTextColor: #fff;
+    --twn-secondaryColor: #ff57a2;
+    --twn-backgroundColor: #3a3d57;
+    --twn-linkHoverColor: #03875c;
+    --twn-blockColor: #efefef;
+    --twn-menuWidth: 220px;
+    --twnMaxWidth: 1000px;
+}
+
+@font-face {
+    font-family: 'BoosterNextFy';
+    src: url('../public/fonts/BoosterNextFY-Light.woff') format('woff'),
+         url('../public/fonts/BoosterNextFY-Black.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Kasutage fonti */
+body {
+    font-family: var(--primary-font);
+    background-color: var(--twn-backgroundColor);
+    color: var(--twn-alternateTextColor);
+}
+
+.article {
+    margin: 20px;
+    text-align: center;
+    font-family: var(--primary-font);
+}
+
+h1 {
+    text-transform: uppercase;
+}

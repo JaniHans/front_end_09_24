@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "webshop-4ab14-2be1b",
+    "site": "webshops123",
     "public": "build",
     "ignore": [
       "firebase.json",
